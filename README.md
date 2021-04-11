@@ -10,9 +10,9 @@
     + [TARGET AND JUMP](#TARGET-AND-JUMP)
   * [Examples](#Examples)
     + [Flush](#flush)
-      + [Clean rules in all chains](#clean-rules-in-all-chains)
-      + [Clean rules in the INPUT chain](#Clean-rules-in-the-INPUT-chain)
-
+      + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
+      + [Clean rules in the INPUT chain in filter table](#Clean-rules-in-the-INPUT-chain-in-filter-table)
+      + [Clean rules in all chains in nat table](#Clean-rules-in-all-chains-in-nat-table)
 # iptables
 Requirements: `root user`
 
@@ -100,12 +100,18 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 
 ## Examples
 ### Flush
-#### Clean rules in all chains  
+#### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
 `# iptables -F`  
 `# iptables -Lvn`  
 
-#### Clean rules in the INPUT chain
+#### Clean rules in the INPUT chain in filter table
 Flush all rules in `INPUT` chain in the `filter table`  
 `# iptables -F INPUT`  
+`# iptables -Lvn`  
+
+
+#### Clean rules in all chains in nat table
+Flush all rules in `INPUT` chain in the `nat table`  
+`# iptables -t nat -F`  
 `# iptables -Lvn`  
