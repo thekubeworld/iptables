@@ -8,6 +8,10 @@
     + [CHAIN NAMES](#chain-names)
     + [MATCHES](#MATCHES)
     + [TARGET AND JUMP](#TARGET-AND-JUMP)
+  * [Examples](#Examples)
+    + [Flush](#flush)
+      + [Clean current rules](#clean-current-rules)
+      + [Clean rules in the INPUT chain](#Clean-rules-in-the-INPUT-chain)
 
 # iptables
 Requirements: `root user`
@@ -93,3 +97,14 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **TEE** -            
 **TOS** -            
 **TTL** -            
+
+## Examples
+### Flush
+#### Clean current rules
+- Clean rules for all chains
+`# iptables -F`  
+`# iptables -Lvn`
+
+#### Clean rules in the INPUT chain
+`# iptables -F INPUT`  
+`# iptables -Lvn`
