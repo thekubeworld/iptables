@@ -68,7 +68,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **USER_DEFINED** -  
 
 ### MATCHES
-***-s** source_ip              
+**-s** source_ip              
 **-d** dest_ip                
 **-o** outgoing_int           
 **-p** protocol               
@@ -82,14 +82,14 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-m** recent                 
 
 ### TARGET AND JUMP
-| ACCEPT        |
-| DROP          |
-| REJECT        |
-| LOG           |
-| SNAT          |
-| DNAT          |
-| LIMIT         |
-| RETURN        |
-| TEE           |
-| TOS           |
-| TTL           |
+**ACCEPT** -         
+**DROP** -          
+**REJECT** -         
+**LOG** -            
+**SNAT** -           
+**DNAT** -           
+**LIMIT** -          
+**RETURN** -         
+**TEE** -            
+**TOS** -            
+**TTL** -            
