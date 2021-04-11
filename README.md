@@ -16,11 +16,19 @@ See `iptables` command
 General command is:  
 `iptables [-t TABLE] COMMAND CHAIN_NAME MATCHES -k TARGET/JUMP`
 
+
+|  TABLE TYPES  |
+|---------------|
+|  filter       |
+|  nat          |
+|  mangle       |
+|  raw          | 
+
+
 |  TABLE TYPES  |  COMMAND TYPES                                                  |  CHAIN NAMES       |   MATCHES                 | TARGET/JUMP  |
 |---------------|-----------------------------------------------------------------|--------------------|---------------------------|--------------|
-|  filter       |  -A Append the rule to the end of selected chain                |  INPUT             | -s source_ip              | ACCEPT       |
-|  nat          |  -I Insert one or more rules in the selected chain              |                    |                           |              |
-|               |     on specific position, by default on the top (position 1)    |  OUTPUT            | -d dest_ip                | DROP         |
+|  filter       |  -A Append the rule to the end of selected chain                | INPUT              | -s source_ip              | ACCEPT   
+|  nat          |  -I Insert one or more rules in the selected chain  on specific position, by default on the top (position 1) | OUTPUT | -d dest_ip   | DROP         |
 |               |  -L List all rules in the selected chain.                       |                    |                           |              |
 |               |     If no chain is selected all chains as listed                |                    | -o outgoing_int           | MASQUERADE   |
 |               |  -F Flush the selected chain. If no chain is selected, all      |                    |                           |              |
