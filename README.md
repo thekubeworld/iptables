@@ -26,7 +26,7 @@ General command is:
 
 ## COMMAND TYPES                                                                                               
 -A Append the rule to the end of selected chain                                                             
--I Insert one or more rules in the selected chain  on specific position, by default on the top (position 1) 
+-I Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
 -L List all rules in the selected chain. If no chain is selected all chains as listed                       
 -F Flush the selected chain. If no chain is selected, all chains are selected                               
 -D Delete rule                                                                                              
