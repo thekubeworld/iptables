@@ -24,11 +24,15 @@ General command is:
 `iptables [-t TABLE] COMMAND CHAIN_NAME MATCHES -k TARGET/JUMP`
 
 ### TABLE TYPES
-**filter**: 
+**filter**  
 This is the default and perhaps the most widely used table. It is used to make decisions about whether a packet should be allowed to reach its destination.
-iptables filter table has the following built-in chains: INPUT, OUTPUT, FORWARD
+iptables filter table has the following built-in chains: `INPUT, OUTPUT, FORWARD`
 
-nat  
+**nat**  
+The nat table is specialized for `SNAT` and `DNAT` (`Port-Forwarding`)
+This table allows you to route packets to different hosts on `NAT` (`Network Address Translation`) networks by changing the source and destination addresses of packets. It is often used to allow access to services that can’t be accessed directly, because they’re on a NAT network.
+iptables NAT table has the following built-in chains: `PREROUTING, POSTROUTING and OUTPUT` (for locally generated packets)
+
 mangle  
 raw  
   
