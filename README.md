@@ -57,13 +57,13 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-P** Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
 
 ### CHAIN NAMES 
-INPUT  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`
-OUTPUT - used for filtering `OUTGOING PACKETS`. In our linux host is the `packet SOURCE` of the packet.
-MASQUERADE -
-FORWARD - 
-PREROUTING - used for `DNAT/Port Forwarding`
-POSTROUTING - used for `SNAT (MASQUERADE)`
-USER_DEFINED -
+INPUT  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
+OUTPUT - used for filtering `OUTGOING PACKETS`. In our linux host is the `packet SOURCE` of the packet  
+MASQUERADE -  
+FORWARD -  
+PREROUTING - used for `DNAT/Port Forwarding`  
+POSTROUTING - used for `SNAT (MASQUERADE)`  
+USER_DEFINED -  
 
 | MATCHES                   |
 |---------------------------|
