@@ -10,7 +10,7 @@
     + [TARGET AND JUMP](#TARGET-AND-JUMP)
   * [Examples](#Examples)
     + [Flush](#flush)
-      + [Clean current rules](#clean-current-rules)
+      + [Clean rules in all chains](#clean-rules-in-all-chains)
       + [Clean rules in the INPUT chain](#Clean-rules-in-the-INPUT-chain)
 
 # iptables
@@ -100,8 +100,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 
 ## Examples
 ### Flush
-#### Clean current rules
-Clean rules for all chains  
+#### Clean rules for all chains  
 `# iptables -F`  
 `# iptables -Lvn`
 
