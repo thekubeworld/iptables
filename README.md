@@ -46,17 +46,17 @@ The raw table is only used to set a mark on packets that should not be handled b
 target on packet. raw table has the following builtin-chains: `PREROUTING and OUTPUT`.
 
 ### COMMAND TYPES                                                                                               
-**-A** Append the rule to the end of selected chain                                                             
-**-I** Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
-**-L** List all rules in the selected chain. If no chain is selected all chains as listed                       
-**-F** Flush the selected chain. If no chain is selected, all chains are selected                               
-**-D** Delete rule                                                                                              
-**-R** Replace rule                                                                                             
-**-S** Show                                                                                                     
-**-Z** Zero the packet and byte counters. If no chain is specified all chains counters are clean                
-**-N** Create a new user defined chain by the given name                                                        
-**-X** Delete the user-defined chain specified                                                                  
-**-P** Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
+**-A** - Append the rule to the end of selected chain                                                             
+**-I** - Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
+**-L** - List all rules in the selected chain. If no chain is selected all chains as listed                       
+**-F** - Flush the selected chain. If no chain is selected, all chains are selected                               
+**-D** - Delete rule                                                                                              
+**-R** - Replace rule                                                                                             
+**-S** - Show                                                                                                     
+**-Z** - Zero the packet and byte counters. If no chain is specified all chains counters are clean                
+**-N** - Create a new user defined chain by the given name                                                        
+**-X** - Delete the user-defined chain specified                                                                  
+**-P** - Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
 
 ### CHAIN NAMES 
 **INPUT**  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
@@ -68,18 +68,18 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **USER_DEFINED** -  
 
 ### MATCHES
-**-s** source_ip              
-**-d** dest_ip                
-**-o** outgoing_int           
-**-p** protocol               
-**--sport** source port       
-**--dport** destionation port 
-**-i** incoming int           
-**-m** mac                    
-**-m** time                   
-**-m** quota                  
-**-m** limit                  
-**-m** recent                 
+**-s** - source_ip              
+**-d** - dest_ip                
+**-o** - outgoing_int           
+**-p** - protocol               
+**--sport** - source port       
+**--dport** - destionation port 
+**-i** - incoming int           
+**-m** - mac                    
+**-m** - time                   
+**-m** - quota                  
+**-m** - limit                  
+**-m** - recent                 
 
 ### TARGET AND JUMP
 **ACCEPT** -         
