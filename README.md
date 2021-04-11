@@ -26,8 +26,8 @@ General command is:
 |               |  -Z (zero)         |  USER_DEFINED      | -i incoming int           | DNAT         |
 |               |  -L (list)         |                    | -o outgoing int           | MASQUERADE   |
 |               |  -S (show)         |                    | -m mac                    | LIMIT        |
-|               |  -N                |                    | -m time                   | RETURN       |
-|               |  -X                |                    | -m quota                  | TEE          |
-|               |                    |                    | -m limit                  | TOS          |
+|               |  -N (create)       |                    | -m time                   | RETURN       |
+|               |  -X (delete)       |                    | -m quota                  | TEE          |
+|               |  -P (set policy)   |                    | -m limit                  | TOS          |
 |               |                    |                    | -m recent                 | TTL          |
 
