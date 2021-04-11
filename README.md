@@ -1,5 +1,5 @@
 # iptables
-iptables / netfilter notes
+Requirements: `root user`
 
 ## Kernelspace
 See `netfilter`
