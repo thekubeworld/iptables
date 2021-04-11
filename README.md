@@ -13,7 +13,7 @@ See `iptables` command
 
 ## General info
 
-General command is:
+General command is:  
 `iptables [-t TABLE] COMMAND CHAIN_NAME MATCHES -k TARGET/JUMP`
 
 |  TABLE        |  COMMAND           |  CHAIN_NAME        |   MATCHES                 | TARGET/JUMP  |
