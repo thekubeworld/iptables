@@ -9,6 +9,7 @@
     + [MATCHES](#MATCHES)
     + [TARGET AND JUMP](#TARGET-AND-JUMP)
   * [Examples](#Examples)
+    + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
       + [Clean rules in the INPUT chain in filter table](#Clean-rules-in-the-INPUT-chain-in-filter-table)
@@ -101,6 +102,16 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **TTL** -            
 
 ## Examples
+### Zero Counters
+List data  
+`# iptables -Lvn`  
+
+Zero everything  
+`# iptables -F`
+
+List data  
+`# iptables -Lvn`  
+
 ### Flush
 #### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
