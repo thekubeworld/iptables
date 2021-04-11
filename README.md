@@ -48,28 +48,32 @@ General command is:
 | POSTROUTING    |
 | USER_DEFINED   |
 
+| MATCHES                   |
+|---------------------------|
+| -s source_ip              |
+| -d dest_ip                |
+| -o outgoing_int           |
+| -p protocol               |
+| --sport source port       |
+| --dport destionation port |
+| -i incoming int           |
+| -m mac                    |
+| -m time                   |
+| -m quota                  |
+| -m limit                  |
+| -m recent                 |
 
-|  TABLE TYPES  |  COMMAND TYPES                                                  |  CHAIN NAMES       |   MATCHES                 | TARGET/JUMP  |
-|---------------|-----------------------------------------------------------------|--------------------|---------------------------|--------------|
-|  filter       |                                                                 | INPUT              | -s source_ip              | ACCEPT   
-|  nat          |                                                                 | OUTPUT | -d dest_ip   | DROP         |
-|               |                         |                    |                           |              |
-|               |                    |                    | -o outgoing_int           |    |
-|               |                                                                 |                    |                           |              |
-|               |                                              |                    |                           |              |
-|               |                                                                 |                    |                           |              |        
-|  mangle       |  -D Delete rule                                                 |  FORWARD           | -p protocol               | REJECT       |
-|               |                                                                 |                    |                           |              |           
-|  raw          |  -R Replace rule                                                |  PREROUTING        | --sport source port       | LOG          |
-|               |                                                                 |  POSTROUTING       | --dport destionation port | SNAT         |
-|               |                                                                 |                    |                           |              |
-|               |  -Z Zero the packet and byte counters. If no chain is specified |  USER_DEFINED      | -i incoming int           | DNAT         |
-|               |     all chains counters are clean                               |                    |                           |              |
-|               |  -S Show                                                        |                    | -m mac                    | LIMIT        |
-|               |                                                                 |                    |                           |              |
-|               |  -N Create a new user defined chain by the given name           |                    | -m time                   | RETURN       |
-|               |  -X Delete the user-defined chain specified                     |                    | -m quota                  | TEE          |
-|               |  -P Set the policy for the built-in chain                       |                    |                           |              |
-|               |    (INPUT, OUTPUT or FORWARD)                                   |                    | -m limit                  | TOS          |
-|               |                                                                 |                    | -m recent                 | TTL          |
 
+| TARGET / JUMP |
+|---------------|
+| ACCEPT        |
+| DROP          |
+| REJECT        |
+| LOG           |
+| SNAT          |
+| DNAT          |
+| LIMIT         |
+| RETURN        |
+| TEE           |
+| TOS           |
+| TTL           |
