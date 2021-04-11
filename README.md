@@ -16,18 +16,31 @@ See `iptables` command
 General command is:  
 `iptables [-t TABLE] COMMAND CHAIN_NAME MATCHES -k TARGET/JUMP`
 
-|  TABLE        |  COMMAND           |  CHAIN_NAME        |   MATCHES                 | TARGET/JUMP  |
-|---------------|--------------------|--------------------|---------------------------|--------------|
-|  filter       |  -A (append)       |  INPUT             | -s source_ip              | ACCEPT       |
-|  nat          |  -I (insert)       |  OUTPUT            | -d dest_ip                | DROP         |
-|  mangle       |  -D (delete)       |  FORWARD           | -p protocol               | REJECT       |
-|  raw          |  -R (replace)      |  PREROUTING        | --sport source port       | LOG          |
-|               |  -F (flush)        |  POSTROUTING       | --dport destionation port | SNAT         |
-|               |  -Z (zero)         |  USER_DEFINED      | -i incoming int           | DNAT         |
-|               |  -L (list)         |                    | -o outgoing int           | MASQUERADE   |
-|               |  -S (show)         |                    | -m mac                    | LIMIT        |
-|               |  -N (create)       |                    | -m time                   | RETURN       |
-|               |  -X (delete)       |                    | -m quota                  | TEE          |
-|               |  -P (set policy)   |                    | -m limit                  | TOS          |
-|               |                    |                    | -m recent                 | TTL          |
+|  TABLE TYPES  |  COMMAND TYPES                                                  |  CHAIN NAMES       |   MATCHES                 | TARGET/JUMP  |
+|---------------|-----------------------------------------------------------------|--------------------|---------------------------|--------------|
+|  filter       |  -A Append the rule to the end of selected chain                |  INPUT             | -s source_ip              | ACCEPT       |
+|               |                                                                 |                    |                           |              |
+|  nat          |  -I Insert one or more rules in the selected chain              |                    |                           |              |
+|               |     on specific position, by default on the top (position 1)    |  OUTPUT            | -d dest_ip                | DROP         |
+|               |                                                                 |                    |                           |              |
+|               |  -L List all rules in the selected chain.                       |                    |                           |              |
+|               |     If no chain is selected all chains as listed                |                    | -o outgoing_int           | MASQUERADE   |
+|               |                                                                 |                    |                           |              |
+|               |  -F Flush the selected chain. If no chain is selected, all      |                    |                           |              |
+|               |     chains are selected                                         |                    |                           |              |
+|               |                                                                 |                    |                           |              |        
+|  mangle       |  -D Delete rule                                                 |  FORWARD           | -p protocol               | REJECT       |
+|               |                                                                 |                    |                           |              |           
+|  raw          |  -R Replace rule                                                |  PREROUTING        | --sport source port       | LOG          |
+|               |                                                                 |  POSTROUTING       | --dport destionation port | SNAT         |
+|               |                                                                 |                    |                           |              |
+|               |  -Z Zero the packet and byte counters. If no chain is specified |  USER_DEFINED      | -i incoming int           | DNAT         |
+|               |     all chains counters are clean                               |                    |                           |              |
+|               |  -S Show                                                        |                    | -m mac                    | LIMIT        |
+|               |                                                                 |                    |                           |              |
+|               |  -N Create a new user defined chain by the given name           |                    | -m time                   | RETURN       |
+|               |  -X Delete the user-defined chain specified                     |                    | -m quota                  | TEE          |
+|               |  -P Set the policy for the built-in chain                       |                    |                           |              |
+|               |    (INPUT, OUTPUT or FORWARD)                                   |                    | -m limit                  | TOS          |
+|               |                                                                 |                    | -m recent                 | TTL          |
 
