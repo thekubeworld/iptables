@@ -33,9 +33,14 @@ The nat table is specialized for `SNAT` and `DNAT` (`Port-Forwarding`)
 This table allows you to route packets to different hosts on `NAT` (`Network Address Translation`) networks by changing the source and destination addresses of packets. It is often used to allow access to services that can’t be accessed directly, because they’re on a NAT network.
 iptables NAT table has the following built-in chains: `PREROUTING, POSTROUTING and OUTPUT` (for locally generated packets)
 
-mangle  
-raw  
-  
+**mangle**  
+This table allows you to alter packet headers in various ways, such as changing TTL values.
+mangle table has the following built-in chains: `PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING`
+
+**raw**  
+The raw table is only used to set a mark on packets that should not be handled by the connection tracking system. This is done by using `NOTRACK`
+target on packet. raw table has the following builtin-chains: `PREROUTING and OUTPUT`.
+
 ### COMMAND TYPES                                                                                               
 **-A** Append the rule to the end of selected chain                                                             
 **-I** Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
