@@ -6,6 +6,8 @@
     + [COMMAND TYPES](#command-types)
     + [TABLE TYPES](#table-types)
     + [CHAIN NAMES](#chain-names)
+    + [MATCHES](#MATCHES)
+    + [TARGET AND JUMP](#TARGET-AND-JUMP)
 
 # iptables
 Requirements: `root user`
@@ -57,32 +59,29 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-P** Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
 
 ### CHAIN NAMES 
-INPUT  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
-OUTPUT - used for filtering `OUTGOING PACKETS`. In our linux host is the `packet SOURCE` of the packet  
-MASQUERADE -  
-FORWARD -  
-PREROUTING - used for `DNAT/Port Forwarding`  
-POSTROUTING - used for `SNAT (MASQUERADE)`  
-USER_DEFINED -  
+**INPUT**  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
+**OUTPUT** - used for filtering `OUTGOING PACKETS`. In our linux host is the `packet SOURCE` of the packet  
+**MASQUERADE** -  
+**FORWARD** -  
+**PREROUTING** - used for `DNAT/Port Forwarding`  
+**POSTROUTING** - used for `SNAT (MASQUERADE)`  
+**USER_DEFINED** -  
 
-| MATCHES                   |
-|---------------------------|
-| -s source_ip              |
-| -d dest_ip                |
-| -o outgoing_int           |
-| -p protocol               |
-| --sport source port       |
-| --dport destionation port |
-| -i incoming int           |
-| -m mac                    |
-| -m time                   |
-| -m quota                  |
-| -m limit                  |
-| -m recent                 |
+### MATCHES
+***-s** source_ip              
+**-d** dest_ip                
+**-o** outgoing_int           
+**-p** protocol               
+**--sport** source port       
+**--dport** destionation port 
+**-i** incoming int           
+**-m** mac                    
+**-m** time                   
+**-m** quota                  
+**-m** limit                  
+**-m** recent                 
 
-
-| TARGET / JUMP |
-|---------------|
+### TARGET AND JUMP
 | ACCEPT        |
 | DROP          |
 | REJECT        |
