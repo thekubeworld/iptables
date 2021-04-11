@@ -101,7 +101,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 ## Examples
 ### Flush
 #### Clean current rules
-- Clean rules for all chains
+Clean rules for all chains  
 `# iptables -F`  
 `# iptables -Lvn`
 
