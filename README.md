@@ -4,6 +4,7 @@
   * [Options](#options)
   * [General info](#general-info)
     + [COMMAND TYPES](#command-types)
+    + [TABLE TYPES](#table-types)
 
 # iptables
 Requirements: `root user`
