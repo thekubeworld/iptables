@@ -9,6 +9,9 @@
     + [Matches](#MATCHES)
     + [Target and Jump](#TARGET-AND-JUMP)
   * [Examples](#Examples)
+    + [List](#list)
+      + [List from filter table](#List-from-filter-table)
+      + [List from nat table](#List-from-nat-table)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -64,11 +67,13 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-F** - Flush (`CLEAN`) the selected chain. If no chain is selected, all chains are `CLEANED`                               
 **-D** - Delete one or more rules from the selected chain
 **-R** - Replace rule in a selected chain                                                         
-**-S** - Show                                                                                                     
+**-S** - Show all rules in the selected chain
 **-Z** - Zero the packet and byte counters. If no chain is specified all chains counters are clean                
 **-N** - Create a new user defined chain by the given name                                                        
 **-X** - Delete the user-defined chain specified                                                                  
 **-P** - Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
+**-v** - Verbose output
+**-n** - Avoid long reverse DNS lookup. Print IPs instead of domains and service names.
 
 ### Chain Names
 **INPUT**  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
@@ -107,6 +112,17 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **TTL** -            
 
 ## Examples
+### List
+#### List from filter table
+```
+iptables -Lnv INPUT
+```
+
+#### List from nat table
+```
+iptables -t nat -Lvn
+```
+
 ### Zero Counters
 List data  
 `# iptables -Lvn`  
