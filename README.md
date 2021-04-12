@@ -128,8 +128,10 @@ Flush all rules in `INPUT` chain in the `filter table`
 
 #### Clean rules in all chains in nat table
 Flush all rules in `INPUT` chain in the `nat table`  
-`# iptables -t nat -F`  
-`# iptables -Lvn`  
+```
+# iptables -t nat -F
+# iptables -Lvn
+```
 
 ### OUTPUT
 #### Allow OUTGOING ssh connection from the machine
@@ -139,8 +141,10 @@ From the machine I am writing this iptables rule, Allow ssh to any machine via 2
 ```
 
 ### CREATE A CHAIN
-`# iptables -N MYCHAIN`  
-`# iptables -Lvn`   
+```
+# iptables -N MYCHAIN
+# iptables -Lvn
+```
 
 ### DELETE A CREATED CHAIN
 ```
