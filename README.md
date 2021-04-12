@@ -59,8 +59,8 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-I** - Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
 **-L** - List all rules in the selected chain. If no chain is selected all chains as listed                       
 **-F** - Flush (`CLEAN`) the selected chain. If no chain is selected, all chains are `CLEANED`                               
-**-D** - Delete rule                                                                                              
-**-R** - Replace rule                                                                                             
+**-D** - Delete one or more rules from the selected chain
+**-R** - Replace rule in a selected chain                                                         
 **-S** - Show                                                                                                     
 **-Z** - Zero the packet and byte counters. If no chain is specified all chains counters are clean                
 **-N** - Create a new user defined chain by the given name                                                        
