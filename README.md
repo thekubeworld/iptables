@@ -39,7 +39,7 @@ See `iptables` command
 General command is:  
 `iptables [-t TABLE] COMMAND CHAIN_NAME MATCHES -k TARGET/JUMP`
 
-### TABLE TYPES
+### Table Types
 **filter**  
 This is the default and perhaps the most widely used table. It is used to make decisions about whether a packet should be allowed to reach its destination.
 iptables filter table has the following built-in chains: `INPUT, OUTPUT, FORWARD`
@@ -57,7 +57,7 @@ mangle table has the following built-in chains: `PREROUTING, INPUT, FORWARD, OUT
 The raw table is only used to set a mark on packets that should not be handled by the connection tracking system. This is done by using `NOTRACK`
 target on packet. raw table has the following builtin-chains: `PREROUTING and OUTPUT`.
 
-### COMMAND TYPES                                                                                               
+### Command Types
 **-A** - Append the rule to the end of selected chain                                                             
 **-I** - Insert one or more rules in the selected chain  on specific position, by default on the top (position 1)  
 **-L** - List all rules in the selected chain. If no chain is selected all chains as listed                       
@@ -70,7 +70,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-X** - Delete the user-defined chain specified                                                                  
 **-P** - Set the policy for the built-in chain (INPUT, OUTPUT or FORWARD)                                         
 
-### CHAIN NAMES 
+### Chain Names
 **INPUT**  - used for filtering `INCOMING PACKETS`. In our linux host is the `packet DESTINATION`  
 **OUTPUT** - used for filtering `OUTGOING PACKETS`. In our linux host is the `packet SOURCE` of the packet  
 **MASQUERADE** -  
@@ -79,7 +79,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **POSTROUTING** - used for `SNAT (MASQUERADE)`  
 **USER_DEFINED** -  
 
-### MATCHES
+### Matches
 **-s** - source_ip              
 **-d** - dest_ip                
 **-o** - outgoing_int           
@@ -93,7 +93,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-m** - limit                  
 **-m** - recent                 
 
-### TARGET AND JUMP
+### Target and Jump
 **ACCEPT** -         
 **DROP** -          
 **REJECT** -         
@@ -139,26 +139,26 @@ Flush all rules in `INPUT` chain in the `nat table`
 # iptables -Lvn
 ```
 
-### OUTPUT
+### Output
 #### Allow OUTGOING ssh connection from the machine
 From the machine I am writing this iptables rule, Allow ssh to any machine via 22 port.
 ```
 # iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
 ```
 
-### CREATE A CHAIN
+### Create a Chain
 ```
 # iptables -N MYCHAIN
 # iptables -Lvn
 ```
 
-### DELETE A CREATED CHAIN
+### Delete a Created Chain
 ```
 # iptables -X MYCHAIN
 # iptables -Lvn
 ```
 
-### CHANGE DEFAULT POLICY FOR A CHAIN
+### Change Default Policy For a Chain
 Example each packet which is not accepted for a rule, will drop.
 
 ```
@@ -166,7 +166,7 @@ Example each packet which is not accepted for a rule, will drop.
 # iptables -Lvn
 ```
 
-### DELETE A RULE IN A CHAIN
+### Delete a Rule in a Chain
 Delete the rule number 3 in INPUT chain
 
 ```
