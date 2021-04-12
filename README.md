@@ -17,7 +17,10 @@
     + [OUTPUT](#output)
       + [Allow OUTGOING ssh connection from the machine](#Allow-OUTGOING-ssh-connection-from-the-machine)
     + [CREATE A CHAIN](#create-a-chain)
+    + [CHANGE DEFAULT POLICY FOR A CHAIN](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
     + [DELETE A CREATED CHAIN](#delete-a-created-chain)
+    + [DELETE A RULE IN A CHAIN](#DELETE-A-RULE-IN-A-CHAIN)
+
 # iptables
 Requirements: `root user`
 
@@ -163,3 +166,10 @@ Example each packet which is not accepted for a rule, will drop.
 # iptables -Lvn
 ```
 
+### DELETE A RULE IN A CHAIN
+Delete the rule number 3 in INPUT chain
+
+```
+# iptables -D 3 INPUT
+# iptables -Lvn
+```
