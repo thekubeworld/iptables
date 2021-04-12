@@ -152,17 +152,18 @@ From the machine I am writing this iptables rule, Allow ssh to any machine via 2
 # iptables -Lvn
 ```
 
-### Delete a Created Chain
-```
-# iptables -X MYCHAIN
-# iptables -Lvn
-```
-
 ### Change Default Policy For a Chain
 Example each packet which is not accepted for a rule, will drop.
 
 ```
 # iptables -P FORWARD DROP
+# iptables -Lvn
+```
+
+
+### Delete a Created Chain
+```
+# iptables -X MYCHAIN
 # iptables -Lvn
 ```
 
