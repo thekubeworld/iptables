@@ -176,7 +176,9 @@ Delete the rule number 3 in INPUT chain
 ```
 
 ### Insert a rule on TOP of the chain
-`-I` will insert in the `TOP` of the chain. On the other hand, `-A` will `APPEND` the rule.
+- `-I` will insert in the `TOP` of the chain.  
+- On the other hand, `-A` will `APPEND` the rule.
+
 ```
 # iptables -I INPUT -p tcp --dport -s 192.168.1.10 -j ACCEPT
 # iptables -I INPUT -p tcp --dport -j DROP
