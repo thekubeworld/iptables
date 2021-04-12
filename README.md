@@ -16,6 +16,8 @@
       + [Clean rules in all chains in nat table](#Clean-rules-in-all-chains-in-nat-table)
     + [OUTPUT](#output)
       + [Allow OUTGOING ssh connection from the machine](#Allow-OUTGOING-ssh-connection-from-the-machine)
+    + [CREATE A CHAIN](#create-a-chain)
+    + [DELETE A CREATED CHAIN](#delete-a-created-chain)
 # iptables
 Requirements: `root user`
 
@@ -135,3 +137,22 @@ From the machine I am writing this iptables rule, Allow ssh to any machine via 2
 ```
 # iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
 ```
+
+### CREATE A CHAIN
+`# iptables -N MYCHAIN`  
+`# iptables -Lvn`   
+
+### DELETE A CREATED CHAIN
+```
+# iptables -X MYCHAIN
+# iptables -Lvn
+```
+
+### CHANGE DEFAULT POLICY FOR A CHAIN
+Example each packet which is not accepted for a rule, will drop.
+
+```
+# iptables -P FORWARD DROP
+# iptables -Lvn
+```
+
