@@ -14,12 +14,12 @@
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
       + [Clean rules in the INPUT chain in filter table](#Clean-rules-in-the-INPUT-chain-in-filter-table)
       + [Clean rules in all chains in nat table](#Clean-rules-in-all-chains-in-nat-table)
-    + [OUTPUT](#output)
+    + [Output](#output)
       + [Allow OUTGOING ssh connection from the machine](#Allow-OUTGOING-ssh-connection-from-the-machine)
-    + [CREATE A CHAIN](#create-a-chain)
-    + [CHANGE DEFAULT POLICY FOR A CHAIN](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
-    + [DELETE A CREATED CHAIN](#delete-a-created-chain)
-    + [DELETE A RULE IN A CHAIN](#DELETE-A-RULE-IN-A-CHAIN)
+    + [Create a chain](#create-a-chain)
+    + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
+    + [Delete a created chain](#delete-a-created-chain)
+    + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
 
 # iptables
 Requirements: `root user`
