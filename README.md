@@ -117,14 +117,17 @@ List data
 ### Flush
 #### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
-`# iptables -F`  
-`# iptables -Lvn`  
+```
+# iptables -F
+# iptables -Lvn
+```
 
 #### Clean rules in the INPUT chain in filter table
 Flush all rules in `INPUT` chain in the `filter table`  
-`# iptables -F INPUT`  
-`# iptables -Lvn`  
-
+```
+# iptables -F INPUT
+# iptables -Lvn
+```
 
 #### Clean rules in all chains in nat table
 Flush all rules in `INPUT` chain in the `nat table`  
