@@ -25,6 +25,7 @@
     + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
     + [Delete a created chain](#delete-a-created-chain)
     + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
+  * [Additional Resources](#additional-resources)
 
 # iptables
 Requirements: `root user`
