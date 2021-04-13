@@ -12,6 +12,8 @@
     + [List](#list)
       + [List from filter table](#List-from-filter-table)
       + [List from nat table](#List-from-nat-table)
+      + [List from raw table](#List-from-raw-table)
+      + [List from mangle table](#List-from-mangle-table)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -118,6 +120,16 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 iptables -Lnv INPUT
 ```
 
+#### List from mangle table
+```
+iptables -t mangle -Lvn
+```
+
+#### List from raw table
+```
+iptables -t raw -Lvn
+```
+
 #### List from nat table
 ```
 iptables -t nat -Lvn
@@ -125,10 +137,12 @@ iptables -t nat -Lvn
 
 ### Zero Counters
 List data  
-`# iptables -Lvn`  
+```
+# iptables -Lvn
 
 Zero everything  
-`# iptables -F`
+# iptables -F
+```
 
 List data  
 `# iptables -Lvn`  
