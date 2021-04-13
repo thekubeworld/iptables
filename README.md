@@ -25,7 +25,7 @@
     + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
     + [Delete a created chain](#delete-a-created-chain)
     + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
-  * [Additional Resources](#additional-resources)
+  * [Additional Resources](#Additional-Resources)
 
 # iptables
 Requirements: `root user`
@@ -217,5 +217,5 @@ Delete the rule number 3 in INPUT chain
 # iptables -I INPUT -p tcp --dport -j DROP
 ```
 
-## Additional Resouces
+## Additional Resources
 [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
