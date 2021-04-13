@@ -217,5 +217,5 @@ Delete the rule number 3 in INPUT chain
 # iptables -I INPUT -p tcp --dport -j DROP
 ```
 
-### Aditional Resouces
+## Aditional Resouces
 [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
