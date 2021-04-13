@@ -139,8 +139,10 @@ iptables -t nat -Lvn
 List data  
 ```
 # iptables -Lvn
+```
 
 Zero everything  
+```
 # iptables -F
 ```
 
