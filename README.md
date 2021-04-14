@@ -14,6 +14,8 @@
       + [List from nat table](#List-from-nat-table)
       + [List from raw table](#List-from-raw-table)
       + [List from mangle table](#List-from-mangle-table)
+    + [Block](#block)
+      + [Block IP Addr](#Block-IP-Addr)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -142,6 +144,12 @@ iptables -t raw -Lvn
 #### List from nat table
 ```
 iptables -t nat -Lvn
+```
+
+### Block
+##### Block IP Addr
+```
+# iptables -I INPUT -s 192.168.1.20 -j DROP
 ```
 
 ### Zero Counters
