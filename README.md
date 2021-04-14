@@ -35,7 +35,7 @@
       + [Drop OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Drop OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
       + [Drop OUTGOING traffic by address type](#Block-OUTGOING-traffic-by-address-type)
-      + [Drop OUTGOING traffi
+      + [Drop OUTGOING traffic by ](#foo)
     + [FORWARD](#forward)
       + [Allow FORWARD packets in a specific time](#Allow-FORWARD-packets-in-a-specific-time)
       + [Create blacklist with recent BLOCKED connections](#Create-blacklist-with-recent-BLOCKED-connections)
