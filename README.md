@@ -15,8 +15,9 @@
       + [List from raw table](#List-from-raw-table)
       + [List from mangle table](#List-from-mangle-table)
     + [Block](#block)
-      + [Block INCOMING IP Addr](#Block-INCOMING-IP-Addr)
-      + [Block OUTGOING subnet](#Block-OUTGOING-subnet)
+      + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
+      + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
+      + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -148,15 +149,33 @@ iptables -t nat -Lvn
 ```
 
 ### Block
-##### Block INCOMING IP Addr
+##### Block INCOMING traffic to IP Addr
 ```
 # iptables -I INPUT -s 192.168.1.20 -j DROP
 ```
 
-##### Block OUTGOING subnet
+##### Block OUTGOING traffic to a subnet
 ```
 # iptables -I OUTPUT -s 192.168.0.0/24 -j DROP
 ```
+
+##### Block OUTGOING traffic to a site
+```
+# iptables -I OUTPUT -d www.terra.com.br -j DROP
+```
+
+
+```
+$ dig www.terra.com.br
+;; ANSWER SECTION:
+www.terra.com.br.	60	IN	CNAME	www.terra.com.br.edgesuite.net.
+www.terra.com.br.edgesuite.net.	7199 IN	CNAME	a1799.dscb.akamai.net.
+a1799.dscb.akamai.net.	19	IN	A	104.98.115.161
+a1799.dscb.akamai.net.	19	IN	A	104.98.115.145
+
+$ iptables -I OUTPUT -d 104.98.115.161 -j DROP
+```
+
 
 ### Zero Counters
 List data  
