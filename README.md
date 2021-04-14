@@ -279,6 +279,15 @@ Useful to avoid **DDoS attacks**
 # iptables -A INPUT -p tcp --dport 25 --syn -m conlimit \
         --connlimit-above 5 -j REJECT --reject-with tcp-rst
 ```
+
+#### Allow INCOMING ICMP traffic using LIMIT MATCH
+Allow INCOMING ICMP traffic (echo-request) as 7 packages (doesn't matter how fast it was) and after
+that LIMIT 1 packet PER SEC
+```
+# iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec \
+          --limit-burst 7 -j ACCEPT
+```
+
 ### Block
 #### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
