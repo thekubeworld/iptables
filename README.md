@@ -33,6 +33,7 @@
       + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
       + [Delete a created chain](#delete-a-created-chain)
       + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
+      + [Insert a rule on TOP of the chain](#Insert-a-rule-on-TOP-of-the-chain)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
