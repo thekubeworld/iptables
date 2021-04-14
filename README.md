@@ -357,6 +357,14 @@ Zero everything
 List data  
 `# iptables -Lvn`  
 
+### FORWARD
+
+The FORWARD chain is only applied when the machine is a router.  
+
+Consider FORWARD as packets that are neither emitted by the host
+nor directed to the host. They are the packets that the host is merely routing.
+
+#### Allow FORWARD packets in a specific time
 ### Flush
 #### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
