@@ -160,11 +160,13 @@ iptables -t nat -Lvn
 ```
 
 ##### Block OUTGOING traffic to a site
+
+User can do a single line, like this one:
 ```
 # iptables -I OUTPUT -d www.terra.com.br -j DROP
 ```
 
-
+Or Block by all IP address assigned to the site:
 ```
 $ dig www.terra.com.br
 ;; ANSWER SECTION:
@@ -174,6 +176,7 @@ a1799.dscb.akamai.net.	19	IN	A	104.98.115.161
 a1799.dscb.akamai.net.	19	IN	A	104.98.115.145
 
 $ iptables -I OUTPUT -d 104.98.115.161 -j DROP
+$ iptables -I OUTPUT -d 104.98.115.145 -j DROP
 ```
 
 
