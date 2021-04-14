@@ -15,7 +15,8 @@
       + [List from raw table](#List-from-raw-table)
       + [List from mangle table](#List-from-mangle-table)
     + [Block](#block)
-      + [Block IP Addr](#Block-IP-Addr)
+      + [Block INCOMING IP Addr](#Block-INCOMING-IP-Addr)
+      + [Block OUTGOING subnet](#Block-OUTGOING-subnet)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -147,9 +148,14 @@ iptables -t nat -Lvn
 ```
 
 ### Block
-##### Block IP Addr
+##### Block INCOMING IP Addr
 ```
 # iptables -I INPUT -s 192.168.1.20 -j DROP
+```
+
+##### Block OUTGOING subnet
+```
+# iptables -I OUTPUT -s 192.168.0.0/24 -j DROP
 ```
 
 ### Zero Counters
