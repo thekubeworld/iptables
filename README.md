@@ -21,6 +21,7 @@
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
+      + [Block by address type](#Block-by-address-type)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -194,11 +195,21 @@ www.terra.com.br.edgesuite.net.	7199 IN	CNAME	a1799.dscb.akamai.net.
 a1799.dscb.akamai.net.	19	IN	A	104.98.115.161
 a1799.dscb.akamai.net.	19	IN	A	104.98.115.145
 
-$ iptables -I OUTPUT -d 104.98.115.161 -j DROP
-$ iptables -I OUTPUT -d 104.98.115.145 -j DROP
+# iptables -I OUTPUT -d 104.98.115.161 -j DROP
+# iptables -I OUTPUT -d 104.98.115.145 -j DROP
 ```
 
 However, **both approaches won't work** for sites like **google**, **facebook** can have several IPs address but only list a few of them here. In that case, is required to have a proxy like squid in front of the your subnet.
+
+##### Block by address type
+Address type:  
+  UNSPEC, UNICAST, LOCAL, BROADCAST, ANYCAST  
+  MULTICAST, BLACKHOLE, UNREACHABLE, PROHIBIT  
+  THROW, NAT, XRESOLVE
+
+```
+# iptables -A OUTPUT -m addrtype --dst-type MULTICAST -j DROP
+``` 
 
 ### Zero Counters
 List data  
