@@ -23,7 +23,7 @@
       + [Allow INCOMING traffic by interface](#Allow-INCOMING-traffic-by-interface)
       + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
       + [Allow INCOMING traffic using TCP flags](#Allow-INCOMING-traffic-using-TCP-flags)
-      + [Allow INCOMING traffic in a specific time](#Allow INCOMING traffic in a specific time)
+      + [Allow INCOMING traffic in a specific time](#Allow-INCOMING-traffic-in-a-specific-time)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
