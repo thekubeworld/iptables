@@ -24,6 +24,7 @@
       + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
       + [Allow INCOMING traffic using TCP flags](#Allow-INCOMING-traffic-using-TCP-flags)
       + [Allow INCOMING traffic in a specific time](#Allow-INCOMING-traffic-in-a-specific-time)
+      + [Allow number of connections per IP address](#Allow-number-of-connections-per-IP-address)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -268,6 +269,15 @@ Example:
 # iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
+#### Allow number of connections per IP address
+Useful to avoid **DDoS attacks**
+
+- `--connlimit-upto` **n**: match if the number of existing connections is less than n
+- `--connlimit-above` **n**: match if the number of existing connections is greater then n
+
+```
+# iptables -A INPUT -p tcp --dport 25 --syn -m conlimit --connlimit-above 5 -j REJECT --reject-with tcp-rst
+```
 ### Block
 #### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
