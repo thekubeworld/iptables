@@ -23,6 +23,7 @@
       + [Allow INCOMING traffic by interface](#Allow-INCOMING-traffic-by-interface)
       + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
       + [Allow INCOMING traffic using TCP flags](#Allow-INCOMING-traffic-using-TCP-flags)
+      + [Allow INCOMING traffic in a specific time](#Allow INCOMING traffic in a specific time)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -239,6 +240,24 @@ FLAGS:
 ```
 # logging outgoing traffic that has syn and ack set
 iptables -A OUTPUT -p tcp --tcp-flags syn,ack,rst,fin syn,ack -j LOG
+```
+
+#### Allow INCOMING traffic in a specific time
+Options available:
+```
+# iptables -m time --help
+
+time match options:
+    --datestart time     Start and stop time, to be given in ISO 8601
+    --datestop time      (YYYY[-MM[-DD[Thh[:mm[:ss]]]]])
+    --timestart time     Start and stop daytime (hh:mm[:ss])
+    --timestop time      (between 00:00:00 and 23:59:59)
+[!] --monthdays value    List of days on which to match, separated by comma
+                         (Possible days: 1 to 31; defaults to all)
+[!] --weekdays value     List of weekdays on which to match, sep. by comma
+                         (Possible days: Mon,Tue,Wed,Thu,Fri,Sat,Sun or 1 to 7
+                         Defaults to all weekdays.)
+    --kerneltz           Work with the kernel timezone instead of UTC
 ```
 
 ### Block
