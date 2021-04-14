@@ -186,6 +186,9 @@ Example 2: Allow `any wlan` interface, like `wlan0`, `wlan1`, `wlan2` etc
 ```
 
 ##### Allow OUTGOING traffic by interface
+```
+# iptables -A OUTPUT -o eth0 ACCEPT
+```
 
 
 ##### Allow OUTGOING and INCOMING traffic via loopback interface
