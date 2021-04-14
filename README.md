@@ -26,15 +26,15 @@
       + [Allow INCOMING traffic in a specific time](#Allow-INCOMING-traffic-in-a-specific-time)
       + [Allow INCOMING traffic with number of connections per IP address](#Allow-INCOMING-traffic-with-number-of-connections-per-IP-address)
       + [Allow INCOMING ICMP traffic using LIMIT MATCH](#Allow-INCOMING-ICMP-traffic-using-LIMIT-MATCH)
-    + [Block](#block)
-      + [Drop INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
-      + [Drop INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
-      + [Drop INCOMING traffic on port 443 EXCEPT on specific IP](#Block-INCOMING-traffic-on-port-443-EXCEPT-on-specific-IP)
-      + [Drop INCOMING ssh traffic by PORT](#Block-INCOMING-ssh-traffic-by-PORT)
-      + [Drop INCOMING traffic by MAC Address](#Block-INCOMING-traffic-by-MAC-Address)
-      + [Drop OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
-      + [Drop OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
-      + [Drop OUTGOING traffic by address type](#Block-OUTGOING-traffic-by-address-type)
+    + [DROP](#block)
+      + [Drop INCOMING traffic to IP Addr](#Drop-INCOMING-traffic-to-IP-Addr)
+      + [Drop INCOMING traffic to a range of IP using iprange](#Drop-INCOMING-traffic-to-a-range-of-IP-using-iprange)
+      + [Drop INCOMING traffic on port 443 EXCEPT on specific IP](#Drop-INCOMING-traffic-on-port-443-EXCEPT-on-specific-IP)
+      + [Drop INCOMING ssh traffic by PORT](#Drop-INCOMING-ssh-traffic-by-PORT)
+      + [Drop INCOMING traffic by MAC Address](#Drop-INCOMING-traffic-by-MAC-Address)
+      + [Drop OUTGOING traffic to a subnet](#Drop-OUTGOING-traffic-to-a-subnet)
+      + [Drop OUTGOING traffic to a site](#Drop-OUTGOING-traffic-to-a-site)
+      + [Drop OUTGOING traffic by address type](#Drop-OUTGOING-traffic-by-address-type)
       + [Drop OUTGOING traffic by ](#foo)
     + [FORWARD](#forward)
       + [Allow FORWARD packets in a specific time](#Allow-FORWARD-packets-in-a-specific-time)
@@ -292,9 +292,9 @@ that LIMIT 1 packet PER SEC
 # iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
 ```
 
-### Block
+### Drop
 #### Drop INCOMING traffic to a range of IP using iprange
-Block range from 192.168.1.20 to 192.168.1.25
+Drop range from 192.168.1.20 to 192.168.1.25
 ```
 
 # iptables -I INPUT -p tcp --dport 25 -m iprange --src range 192.168.1.20-192.168.1.25 -j DROP
