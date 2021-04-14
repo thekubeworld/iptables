@@ -227,6 +227,11 @@ FLAGS:
 - `ALL`: All tcp flags
 - `NONE`: None tcp flags
 
+```
+# logging outgoing traffic that has syn and ack set
+iptables -A OUTPUT -p tcp --tcp-flags syn,ack,rst,fin syn,ack -j LOG
+```
+
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
