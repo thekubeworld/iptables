@@ -24,7 +24,7 @@
       + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
       + [Allow INCOMING traffic using TCP flags](#Allow-INCOMING-traffic-using-TCP-flags)
       + [Allow INCOMING traffic in a specific time](#Allow-INCOMING-traffic-in-a-specific-time)
-      + [Allow number of connections per IP address](#Allow-number-of-connections-per-IP-address)
+      + [Allow INCOMING traffic with number of connections per IP address](#Allow-INCOMING-traffic-with-number-of-connections-per-IP-address)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
