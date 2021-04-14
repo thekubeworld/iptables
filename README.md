@@ -173,6 +173,9 @@ iptables -t nat -Lvn
 ##### Allow OUTGOING and INCOMING traffic via loopback interface
 It's always a good practice allow INCOMING and OUTGOING communication via loopback interface.
 
+- `-i` incoming interface
+- `-o` outgoing interface
+
 ```
 # iptables -A INPUT -i lo -j ACCEPT
 # iptables -A OUTPUT -o lo -j ACCEPT
