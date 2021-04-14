@@ -37,6 +37,7 @@
       + [Block OUTGOING traffic by address type](#Block-OUTGOING-traffic-by-address-type)
     + [FORWARD](#forward)
       + [Allow FORWARD packets in a specific time](#Allow-FORWARD-packets-in-a-specific-time)
+      + [Create blacklist with recent BLOCKED connections](#Create-blacklist-with-recent-BLOCKED-connections)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -287,6 +288,7 @@ that LIMIT 1 packet PER SEC
 ```
 # iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec \
           --limit-burst 7 -j ACCEPT
+# iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
 ```
 
 ### Block
@@ -388,6 +390,22 @@ Packets to www.ubuntu.com are dropped between 8:00 - 18:00 (working hours)
 ```
 # iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -j DROP
 ```
+
+#### Create blacklist with recent BLOCKED connections
+
+The blacklist will be created in `/proc/net/xt_recent/badguys`
+
+```
+# iptables -A FORWARD -m recent --name badguys --update --seconds 60 -j DROP
+# iptables -A FORWARD -p tcp -i eth0 --dport 8080 -m recent --name badguys --set -j DROP
+```
+
+Additional data:
+- `--name` create a list in which the source IP address will be added and checked
+- `--set` adds the source IP address to the list
+- `--update` checks if the source IP address is in the list and updates the "last seen time"
+- `--rcheck` checks if the source IP address is in the list and **DOESNT UPDATE** the "last seen time"
+- `--seconds` used with `--update` or `--rcheck`. Matches the packet only if the source IP address is in the list and the last seen time valid
 
 ### Flush
 #### Clean rules in all chains in filter table
