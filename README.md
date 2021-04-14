@@ -260,6 +260,12 @@ time match options:
     --kerneltz           Work with the kernel timezone instead of UTC
 ```
 
+Example:
+```
+# iptables -A INPUT -p tcp --dport 22 -m time --timestart 10:00 --timestop 15:00 -j ACCEPT
+# iptables -A INPUT -p tcp --dport 22 -j DROP
+```
+
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
