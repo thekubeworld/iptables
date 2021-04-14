@@ -28,6 +28,7 @@
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
       + [Block INCOMING traffic on port 443 EXCEPT on specific IP](#Block-INCOMING-traffic-on-port-443-EXCEPT-on-specific-IP)
       + [Block INCOMING ssh traffic by PORT](#Block-INCOMING-ssh-traffic-by-PORT)
+      + [Block INCOMING traffic by MAC Address](#Block-INCOMING-traffic-by-MAC-Address)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
       + [Block OUTGOING traffic by address type](#Block-OUTGOING-traffic-by-address-type)
@@ -255,6 +256,11 @@ Block range from 192.168.1.20 to 192.168.1.25
 ##### Block INCOMING ssh traffic by PORT
 ```
 # iptables -A INPUT -p tcp --dport 22 -j DROP
+```
+
+##### Block INCOMING traffic by MAC Address
+```
+# iptables -A INPUT -i wlan0 -m mac --mac-source 08:00:11:22:44:11:22 -j DROP
 ```
 
 ##### Block INCOMING traffic on port 443 EXCEPT on specific IP
