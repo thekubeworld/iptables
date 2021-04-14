@@ -268,15 +268,6 @@ Example:
 # iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
-#### Allow FORWARD packets in a specific time
-```
-# Accepting forwarded traffic (this is the router machine) to www.uol.com.br on workdays between 18:00-08:00
-# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -m time --weekdays Mon,Tue,Wed,Thu,Fri --timestart 18:00 --timestop 8:00 -j ACCEPT
- 
-# Packets to www.ubuntu.com are dropped between 8:00 - 18:00 (working hours)
-# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -j DROP
-
-```
 ### Block
 #### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
@@ -365,6 +356,16 @@ Consider FORWARD as packets that are neither emitted by the host
 nor directed to the host. They are the packets that the host is merely routing.
 
 #### Allow FORWARD packets in a specific time
+```
+# Accepting forwarded traffic (this is the router machine) to www.uol.com.br on workdays between 18:00-08:00
+# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -m time --weekdays Mon,Tue,Wed,Thu,Fri --timestart 18:00 --timestop 8:00 -j ACCEPT
+ 
+# Packets to www.ubuntu.com are dropped between 8:00 - 18:00 (working hours)
+# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -j DROP
+```
+
+# iptables 
+```
 ### Flush
 #### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
