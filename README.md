@@ -44,6 +44,8 @@
       + [Insert a rule on TOP of the chain](#Insert-a-rule-on-TOP-of-the-chain)
   * [Conntrack module and Stateful Firewall](#Conntrack-module-and-Stateful-Firewall)
     + [Allow INCOMING traffic state ESTABLISHED RELATED](#Allow-INCOMING-traffic-state-ESTABLISHED-RELATED)
+    + [Allow OUTGOING traffic in initialized connections state NEW ESTABLISHED RELATED](#Allow-OUTGOING-traffic-in-initialized-connections-state-NEW-ESTABLISHED-RELATED)
+    + [Drop INVALID packets](#Drop-Invalid-packets)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -391,6 +393,16 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
 # iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 ```
 
+### Allow OUTGOING traffic in initialized connections state NEW ESTABLISHED RELATED
+```
+# iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+```
+
+### Drop INVALID packets
+```
+# iptables -A INPUT -m state --state INVALID -j DROP
+# iptables -A OUTPUT -m state --state INVALID -j DROP
+```
 ## Additional Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
