@@ -141,7 +141,7 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 ### List
 #### List from filter table
 ```
-iptables -Lnv INPUT
+# iptables -Lnv INPUT
 ```
 
 #### List from mangle table
@@ -170,7 +170,7 @@ iptables -t nat -Lvn
 # iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
 ```
 
-##### Allow INCOMING interface
+##### Allow INCOMING by interface
 Available for: INPUT, FORWARD and PREROUTING chains
 
 Example 1:
@@ -178,10 +178,13 @@ Example 1:
 # iptables -A INPUT -i wlan1 -j ACCEPT
 ```
 
-Example 2:
+Example 2: Allow any wlan interface, like wlan0, wlan1, wlan2 etc
 ```
 # iptables -A INPUT -i wlan+ -j ACCEPT
 ```
+
+##### Allow OUTGOING by interface
+
 
 ##### Allow OUTGOING and INCOMING traffic via loopback interface
 It's always a good practice allow INCOMING and OUTGOING communication via loopback interface.
