@@ -20,7 +20,7 @@
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
-      + [Block OUTGOING traffic to a range of IP using iprange](#Block-OUTGOING-traffic-to-a-range-of-IP-using-iprange)
+      + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -160,7 +160,7 @@ iptables -t nat -Lvn
 ```
 
 ### Block
-##### Block range of IP using iprange
+##### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
 ```
 
