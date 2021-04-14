@@ -393,10 +393,22 @@ Packets to www.ubuntu.com are dropped between 8:00 - 18:00 (working hours)
 
 #### Create blacklist with recent BLOCKED connections
 
-The blacklist will be created in `/proc/net/xt_recent/badguys`
-
+Read this NOTE AFTER)
+-------------------------
+Package that must be ROUTED (FORWARD) must be inspected by this rule
+checking if the source ip address belongs to the `badguys list` and
+if in the list it will be dropped. It will create a quite time of `60 seconds`
+until another packet of this source ip will be considered.
 ```
 # iptables -A FORWARD -m recent --name badguys --update --seconds 60 -j DROP
+```
+
+Read here FIRST)
+--------------------
+DROP traffic if the packets come from interface `eth0`, protocol `tcp` and destination port is `8080` 
+and the blacklist is create via `/proc/net/xt_recent/badguys` adding the source IP address from this
+packet into the list.
+```
 # iptables -A FORWARD -p tcp -i eth0 --dport 8080 -m recent --name badguys --set -j DROP
 ```
 
