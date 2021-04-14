@@ -177,7 +177,7 @@ iptables -t nat -Lvn
 # iptables -I OUTPUT -p tcp --dport 443 -d 0/0 -j ACCEPT
 ```
 
-##### Allow OUTGOING traffic by multi PORT
+#### Allow OUTGOING traffic by multi PORT
 ```
 # iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
 ```
@@ -195,18 +195,18 @@ Example 2: Allow `any wlan` interface, like `wlan0`, `wlan1`, `wlan2` etc
 # iptables -A INPUT -i wlan+ -j ACCEPT
 ```
 
-##### Allow OUTGOING traffic by interface
+#### Allow OUTGOING traffic by interface
 ```
 # iptables -A OUTPUT -o eth0 ACCEPT
 ```
 
-##### Allow OUTGOING ssh connection from the machine
+#### Allow OUTGOING ssh connection from the machine
 From the machine I am writing this iptables rule, Allow ssh to any machine via 22 port.
 ```
 # iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
 ```
 
-##### Allow OUTGOING and INCOMING traffic via loopback interface
+#### Allow OUTGOING and INCOMING traffic via loopback interface
 It's always a good practice allow INCOMING and OUTGOING communication via loopback interface.
 
 - `-i` incoming interface
