@@ -170,6 +170,19 @@ iptables -t nat -Lvn
 # iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
 ```
 
+##### Allow INCOMING interface
+Available for: INPUT, FORWARD and PREROUTING chains
+
+Example 1:
+```
+# iptables -A INPUT -i wlan1 -j ACCEPT
+```
+
+Example 2:
+```
+# iptables -A INPUT -i wlan+ -j ACCEPT
+```
+
 ##### Allow OUTGOING and INCOMING traffic via loopback interface
 It's always a good practice allow INCOMING and OUTGOING communication via loopback interface.
 
