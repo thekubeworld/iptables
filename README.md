@@ -28,9 +28,14 @@
   * [Additional Resources](#Additional-Resources)
 
 # iptables
-Requirements: `root user`
+- The userspace tool requires: `privileged user`
+- All commands executed via iptables are stored in memory, if the machine is rebooted the changes are lost.
+- `iptables-save` will output the rules in stdout or file
+- `iptables-restore` loads rules from a file in memory
 
-RedHat:
+To save the current rules running in memory:  
+
+**RedHat**:  
 ```# service iptables save```
 
 ## Kernelspace
