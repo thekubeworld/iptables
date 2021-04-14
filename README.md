@@ -18,6 +18,8 @@
       + [Allow any website OUTGOING traffic on port 443](#Allow-any-website-OUTGOING-traffic-on-port-443)
       + [Allow OUTGOING traffic by multi PORT](#Allow-OUTGOING-traffic-by-multi-PORT)
       + [Allow OUTGOING and INCOMING traffic via loopback interface](#Allow-OUTGOING-and-INCOMING-traffic-via-loopback-interface)
+      + [Allow INCOMING traffic by interface](#Allow-INCOMING-traffic-by-interface)
+      + [Allow OUTGOING traffic by interface](#Allow-OUTGOING-traffic-by-interface)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -170,7 +172,7 @@ iptables -t nat -Lvn
 # iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
 ```
 
-##### Allow INCOMING by interface
+##### Allow INCOMING traffic by interface
 Available for: INPUT, FORWARD and PREROUTING chains
 
 Example 1:
@@ -183,7 +185,7 @@ Example 2: Allow `any wlan` interface, like `wlan0`, `wlan1`, `wlan2` etc
 # iptables -A INPUT -i wlan+ -j ACCEPT
 ```
 
-##### Allow OUTGOING by interface
+##### Allow OUTGOING traffic by interface
 
 
 ##### Allow OUTGOING and INCOMING traffic via loopback interface
