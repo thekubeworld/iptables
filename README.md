@@ -179,7 +179,7 @@ $ iptables -I OUTPUT -d 104.98.115.161 -j DROP
 $ iptables -I OUTPUT -d 104.98.115.145 -j DROP
 ```
 
-However, google can have several IPs address but only list a few of them here. In that case, is required to have a proxy like squid in front of the your subnet.
+However, **both approaches won't work** for sites like **google**, **facebook** can have several IPs address but only list a few of them here. In that case, is required to have a proxy like squid in front of the your subnet.
 
 ### Zero Counters
 List data  
