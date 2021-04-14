@@ -42,6 +42,7 @@
       + [Delete a created chain](#delete-a-created-chain)
       + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
       + [Insert a rule on TOP of the chain](#Insert-a-rule-on-TOP-of-the-chain)
+  * [Conntrack module and Stateful Firewall](#Conntrack-module-and-Stateful-Firewall)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -370,6 +371,23 @@ Delete the rule number 3 in INPUT chain
 ```
 # iptables -I INPUT -p tcp --dport -s 192.168.1.10 -j ACCEPT
 # iptables -I INPUT -p tcp --dport -j DROP
+```
+## Conntrack module and Stateful Firewall
+The conntrack module, basically is a connection tracking or stateful firrewall.
+
+- NEW: The first packet from a connection
+- ESTABLISHED: Packets that are part of an existing connection
+- RELATED: Packets that are requesting a new connection and are already part of an existing connection. (EX: FTP)
+- INVALID: Packets that are not part of any existing connection
+- UNTRACKED: Packets marked within the raw table with the NOTRACK target
+
+Conntrack module can even be used in non tracking protocol like UDP or ICMP
+
+- `-m state --state` *state* where state is comma separed values of packet states
+
+### Allow INCOMING traffic state ESTABLISHED RELATED
+```
+# iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 ```
 
 ## Additional Resources
