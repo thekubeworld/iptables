@@ -33,6 +33,8 @@
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
       + [Block OUTGOING traffic by address type](#Block-OUTGOING-traffic-by-address-type)
+    + [FORWARD](#forward)
+      + [Allow FORWARD packets in a specific time](#Allow-FORWARD-packets-in-a-specific-time)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -266,41 +268,50 @@ Example:
 # iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
+#### Allow FORWARD packets in a specific time
+```
+# Accepting forwarded traffic (this is the router machine) to www.uol.com.br on workdays between 18:00-08:00
+# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -m time --weekdays Mon,Tue,Wed,Thu,Fri --timestart 18:00 --timestop 8:00 -j ACCEPT
+ 
+# Packets to www.ubuntu.com are dropped between 8:00 - 18:00 (working hours)
+# iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -j DROP
+
+```
 ### Block
-##### Block INCOMING traffic to a range of IP using iprange
+#### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
 ```
 
 # iptables -I INPUT -p tcp --dport 25 -m iprange --src range 192.168.1.20-192.168.1.25 -j DROP
 ```
-##### Block INCOMING traffic to IP Addr
+#### Block INCOMING traffic to IP Addr
 ```
 # iptables -I INPUT -s 192.168.1.20 -j DROP
 ```
 
-##### Block INCOMING ssh traffic by PORT
+#### Block INCOMING ssh traffic by PORT
 ```
 # iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
-##### Block INCOMING traffic by MAC Address
+#### Block INCOMING traffic by MAC Address
 ```
 # iptables -A INPUT -i wlan0 -m mac --mac-source 08:00:11:22:44:11:22 -j DROP
 ```
 
-##### Block INCOMING traffic on port 443 EXCEPT on specific IP
+#### Block INCOMING traffic on port 443 EXCEPT on specific IP
 Use the `!` operator.
 
 ```
 # iptables -A INPUT ! -s 192.168.1.50 -p tcp --dport 443 -j DROP
 ```
 
-##### Block OUTGOING traffic to a subnet
+#### Block OUTGOING traffic to a subnet
 ```
 # iptables -I OUTPUT -s 192.168.0.0/24 -j DROP
 ```
 
-##### Block OUTGOING traffic to a site
+#### Block OUTGOING traffic to a site
 
 User can do a single line, like this one:
 ```
@@ -322,7 +333,7 @@ a1799.dscb.akamai.net.	19	IN	A	104.98.115.145
 
 However, **both approaches won't work** for sites like **google**, **facebook** can have several IPs address but only list a few of them here. In that case, is required to have a proxy like squid in front of the your subnet.
 
-##### Block OUTGOING traffic by address type
+#### Block OUTGOING traffic by address type
 Address type:  
 - UNSPEC, UNICAST, LOCAL, BROADCAST, ANYCAST  
 - MULTICAST, BLACKHOLE, UNREACHABLE, PROHIBIT  
