@@ -23,6 +23,7 @@
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
+      + [Block INCOMING traffic on port 443 EXCEPT on specific IP](#Block-INCOMING-traffic-on-port-443-EXCEPT-on-specific-IP)
       + [Block INCOMING ssh traffic by PORT](#Block-INCOMING-ssh-traffic-by-PORT)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
@@ -217,6 +218,13 @@ Block range from 192.168.1.20 to 192.168.1.25
 ##### Block INCOMING ssh traffic by PORT
 ```
 # iptables -A INPUT -p tcp --dport 22 -j DROP
+```
+
+##### Block INCOMING traffic on port 443 EXCEPT on specific IP
+Use the `!` operator.
+
+```
+# iptables -A INPUT ! -s 192.168.1.50 -p tcp --dport 443 -j DROP
 ```
 
 ##### Block OUTGOING traffic to a subnet
