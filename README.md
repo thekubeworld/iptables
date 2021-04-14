@@ -166,7 +166,7 @@ User can do a single line, like this one:
 # iptables -I OUTPUT -d www.terra.com.br -j DROP
 ```
 
-Or Block by all IP address assigned to the site:
+**Or Block** by all IP address assigned to the site:
 ```
 $ dig www.terra.com.br
 ;; ANSWER SECTION:
