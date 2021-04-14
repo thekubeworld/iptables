@@ -17,6 +17,7 @@
     + [Allow](#allow)
       + [Allow any website OUTGOING traffic on port 443](#Allow-any-website-OUTGOING-traffic-on-port-443)
       + [Allow OUTGOING traffic by multi PORT](#Allow-OUTGOING-traffic-by-multi-PORT)
+      + [Allow OUTGOING and INCOMING traffic via loopback interface](#Allow-OUTGOING-and-INCOMING-traffic-via-loopback-interface)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -169,6 +170,11 @@ iptables -t nat -Lvn
 # iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
 ```
 
+##### Allow OUTGOING and INCOMING traffic via loopback interface
+```
+# iptables -A INPUT -i lo -j ACCEPT
+# iptables -A OUTPUT -o lo -j ACCEPT
+```
 
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
