@@ -203,9 +203,9 @@ However, **both approaches won't work** for sites like **google**, **facebook** 
 
 ##### Block by address type
 Address type:  
-  UNSPEC, UNICAST, LOCAL, BROADCAST, ANYCAST  
-  MULTICAST, BLACKHOLE, UNREACHABLE, PROHIBIT  
-  THROW, NAT, XRESOLVE
+- UNSPEC, UNICAST, LOCAL, BROADCAST, ANYCAST  
+- MULTICAST, BLACKHOLE, UNREACHABLE, PROHIBIT  
+- THROW, NAT, XRESOLVE
 
 ```
 # iptables -A OUTPUT -m addrtype --dst-type MULTICAST -j DROP
