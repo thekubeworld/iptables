@@ -368,11 +368,12 @@ quota is defined in `bytes`
 1G   = 1024M
 ```
 
-- `1M   = 1000000`
-- `10M  = 10000000`
-- `100M = 100000000`
-- `1G   = 1000000000`
-
+```
+1M   = 1000000
+10M  = 10000000
+100M = 100000000
+1G   = 1000000000
+```
 ```
 # iptables -A OUTPUT -d 80.0.0.1 -p tcp --sport 80 -m quota quota 1000000000 -j ACCEPT
 # iptables -A OUTPUT -d 80.0.0.1 -p tcp --sport 80 -j DROP
