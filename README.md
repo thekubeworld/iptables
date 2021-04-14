@@ -14,6 +14,8 @@
       + [List from nat table](#List-from-nat-table)
       + [List from raw table](#List-from-raw-table)
       + [List from mangle table](#List-from-mangle-table)
+    + [Allow](#allow)
+      + [Allow any website OUTGOING traffic on port 443](#Allow-any-website-OUTGOING-traffic-on-port-443)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
@@ -41,6 +43,8 @@ To save the current rules running in memory:
 
 **RedHat**:  
 ```# service iptables save```
+
+- 0/0 means any network and any mask
 
 ## Kernelspace
 See `netfilter`
@@ -146,6 +150,12 @@ iptables -t raw -Lvn
 #### List from nat table
 ```
 iptables -t nat -Lvn
+```
+
+### Allow
+#### Allow OUTGOING traffic to any website on port 443
+```
+# iptables -I OUTPUT -p tcp --dport 443 -d 0/0 -j ACCEPT
 ```
 
 ### Block
