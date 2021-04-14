@@ -20,6 +20,7 @@
       + [Allow OUTGOING and INCOMING traffic via loopback interface](#Allow-OUTGOING-and-INCOMING-traffic-via-loopback-interface)
       + [Allow OUTGOING traffic by interface](#Allow-OUTGOING-traffic-by-interface)
       + [Allow INCOMING traffic by interface](#Allow-INCOMING-traffic-by-interface)
+      + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -202,6 +203,12 @@ It's always a good practice allow INCOMING and OUTGOING communication via loopba
 # iptables -A INPUT -i lo -j ACCEPT
 # iptables -A OUTPUT -o lo -j ACCEPT
 ```
+
+#### Allow INCOMING traffic using TCP syn flag
+```
+# iptables -A INPUT -i eth0 -p tcp --syn -s 192.168.10.1 -j ACCEPT
+```
+
 
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
