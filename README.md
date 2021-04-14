@@ -30,6 +30,9 @@
 # iptables
 Requirements: `root user`
 
+RedHat:
+```# service iptables save```
+
 ## Kernelspace
 See `netfilter`
 
