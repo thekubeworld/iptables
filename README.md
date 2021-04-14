@@ -28,10 +28,11 @@
       + [Clean rules in all chains in nat table](#Clean-rules-in-all-chains-in-nat-table)
     + [Output](#output)
       + [Allow OUTGOING ssh connection from the machine](#Allow-OUTGOING-ssh-connection-from-the-machine)
-    + [Create a chain](#create-a-chain)
-    + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
-    + [Delete a created chain](#delete-a-created-chain)
-    + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
+    + [Chains](#Chains)
+      + [Create a chain](#create-a-chain)
+      + [Change default policy for a chain](#CHANGE-DEFAULT-POLICY-FOR-A-CHAIN)
+      + [Delete a created chain](#delete-a-created-chain)
+      + [Delete a rule in a chain](#DELETE-A-RULE-IN-A-CHAIN)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -241,13 +242,14 @@ From the machine I am writing this iptables rule, Allow ssh to any machine via 2
 # iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
 ```
 
-### Create a Chain
+### Chains
+#### Create a Chain
 ```
 # iptables -N MYCHAIN
 # iptables -Lvn
 ```
 
-### Change Default Policy For a Chain
+#### Change Default Policy For a Chain
 Example each packet which is not accepted for a rule, will drop.
 
 ```
@@ -256,13 +258,13 @@ Example each packet which is not accepted for a rule, will drop.
 ```
 
 
-### Delete a Created Chain
+#### Delete a Created Chain
 ```
 # iptables -X MYCHAIN
 # iptables -Lvn
 ```
 
-### Delete a Rule in a Chain
+#### Delete a Rule in a Chain
 Delete the rule number 3 in INPUT chain
 
 ```
