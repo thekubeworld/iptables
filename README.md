@@ -178,7 +178,7 @@ Example 1:
 # iptables -A INPUT -i wlan1 -j ACCEPT
 ```
 
-Example 2: Allow any wlan interface, like wlan0, wlan1, wlan2 etc
+Example 2: Allow `any wlan` interface, like `wlan0`, `wlan1`, `wlan2` etc
 ```
 # iptables -A INPUT -i wlan+ -j ACCEPT
 ```
