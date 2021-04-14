@@ -269,14 +269,15 @@ Example:
 # iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
-#### Allow number of connections per IP address
+#### Allow INCOMING traffic with number of connections per IP address
 Useful to avoid **DDoS attacks**
 
 - `--connlimit-upto` **n**: match if the number of existing connections is less than n
 - `--connlimit-above` **n**: match if the number of existing connections is greater then n
 
 ```
-# iptables -A INPUT -p tcp --dport 25 --syn -m conlimit --connlimit-above 5 -j REJECT --reject-with tcp-rst
+# iptables -A INPUT -p tcp --dport 25 --syn -m conlimit \
+        --connlimit-above 5 -j REJECT --reject-with tcp-rst
 ```
 ### Block
 #### Block INCOMING traffic to a range of IP using iprange
