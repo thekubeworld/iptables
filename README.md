@@ -35,7 +35,7 @@
       + [Drop OUTGOING traffic to a subnet](#Drop-OUTGOING-traffic-to-a-subnet)
       + [Drop OUTGOING traffic to a site](#Drop-OUTGOING-traffic-to-a-site)
       + [Drop OUTGOING traffic by address type](#Drop-OUTGOING-traffic-by-address-type)
-      + [Drop OUTGOING traffic by ](#foo)
+      + [Drop OUTGOING traffic by QUOTA](#Drop-OUTGOING-traffic-by-QUOTA)
     + [FORWARD](#forward)
       + [Allow FORWARD packets in a specific time](#Allow-FORWARD-packets-in-a-specific-time)
       + [Create blacklist with recent BLOCKED connections](#Create-blacklist-with-recent-BLOCKED-connections)
@@ -357,6 +357,23 @@ Address type:
 ```
 # iptables -A OUTPUT -m addrtype --dst-type MULTICAST -j DROP
 ``` 
+
+#### Drop OUTGOING traffic by QUOTA
+
+quota is defined in `bytes`
+
+- `1M   = 1000000`
+- `10M  = 10000000`
+- `100M = 100000000`
+- `1G   = 1000000000`
+
+- 1 KB = 2^10 = 1024 bytes
+- 1MB  = 1024K
+- 1G   = 1024M
+
+# iptables -A OUTPUT -d 80.0.0.1 -p tcp --sport 80 -m quota quota 1000000000 -j ACCEPT
+# iptables -A OUTPUT -d 80.0.0.1 -p tcp --sport 80 -j DROP
+```
 
 ### Zero Counters
 List data  
