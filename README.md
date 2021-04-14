@@ -166,7 +166,7 @@ User can do a single line, like this one:
 # iptables -I OUTPUT -d www.terra.com.br -j DROP
 ```
 
-**Or Block** by all IP address assigned to the site:
+**Or Block** by IPs address manually assigned to the site:
 ```
 $ dig www.terra.com.br
 ;; ANSWER SECTION:
@@ -179,6 +179,7 @@ $ iptables -I OUTPUT -d 104.98.115.161 -j DROP
 $ iptables -I OUTPUT -d 104.98.115.145 -j DROP
 ```
 
+However, google can have several IPs address but only list a few of them here. In that case, is required to have a proxy like squid in front of the your subnet.
 
 ### Zero Counters
 List data  
