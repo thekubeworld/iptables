@@ -21,6 +21,7 @@
       + [Allow OUTGOING traffic by interface](#Allow-OUTGOING-traffic-by-interface)
       + [Allow INCOMING traffic by interface](#Allow-INCOMING-traffic-by-interface)
       + [Allow INCOMING traffic using TCP syn flag](#Allow-traffic-using-TCP-syn-flag)
+      + [Allow INCOMING traffic using TCP flags](#Allow-INCOMING-traffic-using-TCP-flags)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
@@ -209,6 +210,22 @@ It's always a good practice allow INCOMING and OUTGOING communication via loopba
 # iptables -A INPUT -i eth0 -p tcp --syn -s 192.168.10.1 -j ACCEPT
 ```
 
+#### Allow INCOMING traffic using TCP flags
+Usage `--tcp-flags mask comp`
+
+`mask` is the flags which we should examine, written as a comma-separate list
+`comp` is a comma-separate list of flags which must be set
+
+FLAGS:
+
+- `SYNC`: Synchronize
+- `ACK`: Acknowledgement
+- `FIN`: Finalize
+- `RST`: Reset
+- `URG`: Urgent
+- `PSH`: Push
+- `ALL`: All tcp flags
+- `NONE`: None tcp flags
 
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
