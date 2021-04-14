@@ -364,8 +364,6 @@ nor directed to the host. They are the packets that the host is merely routing.
 # iptables -A FORWARD -p tcp --dport 80 -d www.uol.com.br -j DROP
 ```
 
-# iptables 
-```
 ### Flush
 #### Clean rules in all chains in filter table
 Flush all rules in `all chains` in the `filter table`  
