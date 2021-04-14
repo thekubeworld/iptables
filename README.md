@@ -16,12 +16,14 @@
       + [List from mangle table](#List-from-mangle-table)
     + [Allow](#allow)
       + [Allow any website OUTGOING traffic on port 443](#Allow-any-website-OUTGOING-traffic-on-port-443)
+      + [Allow OUTGOING traffic by multi PORT](#Allow-OUTGOING-traffic-by-multi-PORT)
     + [Block](#block)
       + [Block INCOMING traffic to IP Addr](#Block-INCOMING-traffic-to-IP-Addr)
       + [Block INCOMING traffic to a range of IP using iprange](#Block-INCOMING-traffic-to-a-range-of-IP-using-iprange)
       + [Block OUTGOING traffic to a subnet](#Block-OUTGOING-traffic-to-a-subnet)
       + [Block OUTGOING traffic to a site](#Block-OUTGOING-traffic-to-a-site)
       + [Block by address type](#Block-by-address-type)
+      + [Block INCOMING ssh traffic by PORT](#Block-INCOMING-ssh-traffic-by-PORT)
     + [Zero Counters](#zero-counters)
     + [Flush](#flush)
       + [Clean rules in all chains in filter table](#clean-rules-in-all-chains-in-filter-table)
@@ -162,6 +164,12 @@ iptables -t nat -Lvn
 # iptables -I OUTPUT -p tcp --dport 443 -d 0/0 -j ACCEPT
 ```
 
+##### Allow OUTGOING traffic by multi PORT
+```
+# iptables -A OUTGOING -p tcp -m multiport --dports 80,443 -j ACCEPT
+```
+
+
 ### Block
 ##### Block INCOMING traffic to a range of IP using iprange
 Block range from 192.168.1.20 to 192.168.1.25
@@ -172,6 +180,11 @@ Block range from 192.168.1.20 to 192.168.1.25
 ##### Block INCOMING traffic to IP Addr
 ```
 # iptables -I INPUT -s 192.168.1.20 -j DROP
+```
+
+##### Block INCOMING ssh traffic by PORT
+```
+# iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
 
 ##### Block OUTGOING traffic to a subnet
