@@ -1,4 +1,4 @@
-Why notes on iptables these days? 
+**Why** creating notes on iptables these days?   
 kube-proxy *uses* iptables, so I have decided to do a refresh on the topic.
 
 - [iptables](#iptables)
