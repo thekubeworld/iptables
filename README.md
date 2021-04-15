@@ -766,8 +766,13 @@ Examples:
 ```
 # iptables -I FORWARD -p udp --dport 69 -j REJECT --reject-with icmp-port-unreachable
 ```
-### LOG
 
+### LOG
+- LOG is a **non terminating** target
+- It logs detailed information about packets headers
+- Logs can be read with `dmesg` or from `syslogd daemon`
+- LOG is used instead of DROP in the debugging phase
+- ULOG has MYSQL support (extensive logging)
 
 ## TCP and UDP Ports states
 ### Open Port
