@@ -870,7 +870,7 @@ Example:
 -F NEW_CHAIN flush ALL rules from the chain
 ```
 
-Example:
+Example 1:
 ```
 # creating a user-defined chain
 iptables -N TCP_TRAFFIC
@@ -887,6 +887,49 @@ iptables -F TCP_TRAFFIC
 # delete the chain
 iptables -X TCP_TRAFFIC
 ```
+
+Example 2:
+```
+!/bin/bash
+ 
+# flushing all chains
+iptables -F
+ 
+# deleting all user-defined chains
+iptables -X
+ 
+# allow all outgoing traffic (except invalid packets)
+iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+ 
+ 
+# allow incoming ssh packets
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+ 
+ 
+#create a new chain named ACCEPTED_MAC
+iptables -N ACCEPTED_MAC
+ 
+#add rules to the user defined-chain
+iptables -A ACCEPTED_MAC -m mac --mac-source B8:81:98:22:C7:6B -j ACCEPT
+iptables -A ACCEPTED_MAC -m mac --mac-source B8:81:98:22:C6:7C -j ACCEPT
+iptables -A ACCEPTED_MAC -m mac --mac-source B8:81:98:22:23:AB -j ACCEPT
+iptables -A ACCEPTED_MAC -m mac --mac-source B8:81:98:22:67:AA -j ACCEPT
+ 
+ 
+# jump from the INPUT chain to the user-defined chain
+# now packets traverse the iptables rules in the user-defined chain
+iptables -A INPUT -j ACCEPTED_MAC
+ 
+#if not dropped or accepted (terminating target) packets continue traversing the INPUT chain
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A OUTPUT -p icmp -j ACCEPT
+ 
+ 
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
+```
+
 ## SNAT or MASQUERADE
 - NAT involves **re-writing the source/or destination addresses** of IP packets as they pass through a router or firewall
 - **SNAT replaces** the private IP address from the packet with the public IP address of the router external interface
