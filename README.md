@@ -713,6 +713,27 @@ the rule and **STOP** going into the list of rules after in the CHAIN as it matc
 This means that if a packet match a rule with `LOG` or `TEE` it will continue executing
 the rules and **NOT** stop executing the rules in the CHAIN.
 
+Examples:  
+
+`Terminating Action`
+
+In this case, it will accept the packet on port 22 and terminate. 
+No more rules will be read. Like the DROP connection.
+```
+# iptables -F
+# iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# iptables -A INPUT -p tcp -j DROP
+```
+
+`Non Terminating Action`  
+
+It will log the packet INCOMING in port 22 and continue into the list
+of rules. In this case, drop the packet.  
+```
+# iptables -F
+# iptables -A INPUT -p tcp --dport 22 -j LOG
+# iptables -A INPUT -p tcp -j DROP
+```
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
