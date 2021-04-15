@@ -736,6 +736,7 @@ of rules. In this case, drop the packet.
 ```
 
 The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
+
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
