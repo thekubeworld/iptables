@@ -71,6 +71,8 @@
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
     + [Filtered and Stealth](#Filtered-and-Stealth)
+  * [Scanners](#Scanner)
+    + [nmap](#nmap)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
   * [Resources](#Resources)
 
@@ -755,6 +757,23 @@ The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
   - A firewall is dropping any packet. The port **can be OPEN or CLOSED on the host**, but we can't communicate with it
   - A filtered port **doesn't respond back**.
 
+## Scanners
+### nmap
+
+**TCP Scans**
+- SYN Scans: -sS (root only)
+	It can be perform quickly, it's STEALTH mode as it never complete TCP connection. `Half open scanning`, because it never open TCP connection.
+	A SYN response means the port is OPEN and a RESET indicates the port is closed. If no response is received the port is marked as FILTERED.
+
+	- Connect Scan: -sT 
+
+- UDP Scan: -sU
+- ICMP Scan: -sN or -sP
+
+Example:
+```
+# nmap -sS -p 22,100 -sV 192.168.0.1
+```
 
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
