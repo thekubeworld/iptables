@@ -55,6 +55,13 @@
     + [Allow OUTGOING traffic in initialized connections state NEW ESTABLISHED RELATED](#Allow-OUTGOING-traffic-in-initialized-connections-state-NEW-ESTABLISHED-RELATED)
     + [Drop INVALID packets](#Drop-Invalid-packets)
   * [ipset](#ipset)
+    + [Using hash net to block large nets](#Using-hash-net-to-block-large-nets)
+    + [List sets](#List-sets)
+    + [Delete entry in set](#Delete-entry-in-set)
+    + [Flush all sets](#Flush-all-sets)
+    + [Flush a specific set](#Flush-a-specific-set)
+    + [Delete a set](#Delete-a-set)
+    + [Setting the maximal number of elements which can be stored in a set](#Setting-the-maximal-number-of-elements-which-can-be-stored-in-a-set)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -565,6 +572,54 @@ Incoming traffic `matching the SOURCE` from the list of set `MYNEWSET` and DROP
 # iptables -A INPUT -m set --match-set MYNEWSET src -j DROP
 ```
 
+4. New list the iptables rules, you will notice ONLY ONE SINGLE rule. Without the ipset it will require a BUNCH of IPTABLES RULES to match it
+```
+# iptables -Lvn
+```
+
+### Using hash net to block large nets
+```
+# ipset -N brazil hash:net
+# ipset -N china hash:net
+
+# ipset -A china 1.0.0.0/8
+# ipset -A china 2.0.0.0/8
+# ipset -A china 3.0.0.0/8
+```
+
+### List sets
+```
+# ipset -L
+# ipset -L brazil
+# ipset -L china
+```
+
+### Delete entry in set
+```
+# ipset del china 1.0.0.0/8
+```
+
+### Flush all sets
+```
+# ipset -F
+```
+
+### Flush a specific set
+```
+# ipset -F china
+```
+
+### Delete a set
+```
+# ipset destroy china
+```
+
+### Setting the maximal number of elements which can be stored in a set
+Default value: `65535`
+
+```
+# ipset create myset1 hash:ip maxelem 2048
+```
 
 ## Additional Resources
 - [Netfilter.org](https://www.netfilter.org/)
