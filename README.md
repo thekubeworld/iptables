@@ -1,4 +1,4 @@
-kube-proxy uses iptables and here some notes from recent refresh on the topic
+kube-proxy uses iptables and here some notes from recent refresh on the topic.
 
 - [iptables](#iptables)
   * [Kernelspace](#kernelspace)
