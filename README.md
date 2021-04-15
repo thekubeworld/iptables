@@ -707,7 +707,7 @@ When a packet match a rule, will have to targets:
 
 - Terminating TARGETS: `ACCEPT` or `DROP`  
 This means when a packet match a rule that contains `ACCEPT` or `DROP` it will execute
-the rule and **STOP** going into the list of rules in the CHAIN as it matched the rule.
+the rule and **STOP** going into the list of rules after in the CHAIN as it matched the rule.
 
 - Non Terminating TARGETS: `LOG` or `TEE`  
 This means that if a packet match a rule with `LOG` or `TEE` it will continue executing
