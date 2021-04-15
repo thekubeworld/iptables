@@ -7,7 +7,6 @@
     + [Table Types](#table-types)
     + [Chain Names](#chain-names)
     + [Matches](#MATCHES)
-    + [Target and Jump](#TARGET-AND-JUMP)
   * [Examples](#Examples)
     + [List](#list)
       + [List from filter table](#List-from-filter-table)
@@ -75,6 +74,7 @@
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
     + [Filtered and Stealth](#Filtered-and-Stealth)
+  * [User Defined Chains](#User-Defined-Chains)
   * [SNAT or MASQUERADE](#NAT-or-MASQUERADE)
   * [DNAT](#DNAT)
   * [Load Balance Example](#Load-Balance-Example)
@@ -84,17 +84,18 @@
   * [Resources](#Resources)
 
 # iptables
+About: kube-proxy uses iptables and here some notes from recent refresh on the topic
+
 - The userspace tool requires: `privileged user`
 - All commands executed via iptables are stored in memory, if the machine is rebooted the changes are lost.
 - `iptables-save` will output the rules in stdout or file
 - `iptables-restore` loads rules from a file in memory
+- `0/0` means any network and any mask
 
 To save the current rules running in memory:  
 
 **RedHat**:  
 ```# service iptables save```
-
-- 0/0 means any network and any mask
 
 ## Kernelspace
 See `netfilter`
@@ -104,7 +105,6 @@ See `iptables` command
 
 ## Options
 `-j` — Jumps to the specified target when a packet matches a particular rule. Valid targets to use after the -j option include standard options (ACCEPT, DROP, QUEUE, and RETURN) as well as extended options that are available through modules loaded by default with the Red Hat Enterprise Linux iptables RPM package, such as LOG, MARK, and REJECT, among others. Refer to the iptables man page for more information about these and other targets.
-
 
 ## General info
 
@@ -166,19 +166,6 @@ target on packet. raw table has the following builtin-chains: `PREROUTING and OU
 **-m** - quota                  
 **-m** - limit                  
 **-m** - recent                 
-
-### Target and Jump
-**ACCEPT** -         
-**DROP** -          
-**REJECT** -         
-**LOG** -            
-**SNAT** -           
-**DNAT** -           
-**LIMIT** -          
-**RETURN** -         
-**TEE** -            
-**TOS** -            
-**TTL** -            
 
 ## Examples
 ### List
