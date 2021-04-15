@@ -781,6 +781,7 @@ Examples:
 Example:
 ```
 # iptables -A INPUT -p tcp --dport 22 --syn -j LOG --log-prefix="incoming ssh:" --log-level info
+# dmesg | grep "incoming ssh" 
 ```
 
 ## TCP and UDP Ports states
