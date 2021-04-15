@@ -66,7 +66,7 @@
     + [Auto BLOCK attemps to a specific port](#Auto-BLOCK-attemps-to-a-specific-port)
     + [Blocking an entire country](#Blocking-an-entire-country)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
-  * [Additional Resources](#Additional-Resources)
+  * [Resources](#Resources)
 
 # iptables
 - The userspace tool requires: `privileged user`
@@ -699,6 +699,6 @@ iptables -I INPUT -m set --match-set china src -j DROP
 echo "Done"
 ```
 
-## Additional Resources
+## Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
