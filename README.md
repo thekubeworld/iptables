@@ -1,3 +1,5 @@
+kube-proxy uses iptables and here some notes from recent refresh on the topic
+
 - [iptables](#iptables)
   * [Kernelspace](#kernelspace)
   * [Userspace](#userspace)
@@ -84,7 +86,6 @@
   * [Resources](#Resources)
 
 # iptables
-About: kube-proxy uses iptables and here some notes from recent refresh on the topic
 
 - The userspace tool requires: `privileged user`
 - All commands executed via iptables are stored in memory, if the machine is rebooted the changes are lost.
