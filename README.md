@@ -75,6 +75,8 @@
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
     + [Filtered and Stealth](#Filtered-and-Stealth)
+  * [NAT or MASQUERADE](#NAT-or-MASQUERADE)
+  * [DNAT](#DNAT)
   * [Scanners](#Scanner)
     + [nmap](#nmap)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
@@ -886,6 +888,9 @@ NATed, specify the external interface using **-o** option and use **-j SNAT --to
 # echo "1" > /proc/sys/net/ipv4/ip_forward
 # iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
 ```  
+
+### DNAT
+
 
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
