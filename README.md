@@ -774,6 +774,15 @@ Examples:
 - LOG is used instead of DROP in the debugging phase
 - ULOG has MYSQL support (extensive logging)
 
+**options**
+- `--log-prefix`
+- `--log-level`
+
+Example:
+```
+# iptables -A INPUT -p tcp --dport 22 --syn -j LOG --log-prefix="incoming ssh:" --log-level info
+```
+
 ## TCP and UDP Ports states
 ### Open Port
   - There is an application that's listening on a OPEN port. We can communicate with that application.
