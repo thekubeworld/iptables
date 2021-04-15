@@ -549,7 +549,7 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
   stored in a tiny piece of RAM with extreme efficiency.
 
 ### Blocking via hash ip
-Example, imagining blocking a range of subnets in iptables like:
+Example, imagining blocking a bunch of IPs in iptables, example (require 3 commands):
 ```
 # iptables -A INPUT -s 1.1.1.1 -j DROP
 # iptables -A INPUT -s 2.2.2.2 -j DROP
