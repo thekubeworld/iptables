@@ -54,6 +54,7 @@
     + [Allow INCOMING traffic state ESTABLISHED RELATED](#Allow-INCOMING-traffic-state-ESTABLISHED-RELATED)
     + [Allow OUTGOING traffic in initialized connections state NEW ESTABLISHED RELATED](#Allow-OUTGOING-traffic-in-initialized-connections-state-NEW-ESTABLISHED-RELATED)
     + [Drop INVALID packets](#Drop-Invalid-packets)
+  * [ipset](#ipset)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -530,6 +531,11 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
 # iptables -A INPUT -m state --state INVALID -j DROP
 # iptables -A OUTPUT -m state --state INVALID -j DROP
 ```
+
+## ipset
+- The iptables doesnot provide support for matching multiple separate addresses or networks in one rule.
+
+
 ## Additional Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
