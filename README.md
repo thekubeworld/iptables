@@ -70,6 +70,7 @@
     + [REJECT](#REJECT)
     + [LOG](#LOG)
     + [TEE](#TEE)
+    + [REDIRECT](#REDIRECT)
   * [TCP and UDP Ports states](#TCP-and-UDP-Ports-states)
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
@@ -789,8 +790,31 @@ Example:
 - The `TEE` target will clone a packet and redirect this clone to another machine on the local subnet
 - It is used for traffic mirroring
 
+Examples:
+
+```
+# iptables -A INPUT -p icmp --icmp-type echo-request -j TEE --gateway 10.0.0.10
+```
+
 ```
 # iptables -A FORWARD -i eth0 -o eth1 -p tcp -d 80.0.0.1 -j TEE --gateway 10.0.0.10
+```
+
+NOTE: 10.0.0.10 is the IP address that will receive the mirror traffic.
+
+### REDIRECT
+- Used to redirect packets from one port to another on the same machine
+- The Redirect target is extremely good to use for transparent proxying, where the
+  LAN host do not know about the proxy at all
+- REDIRECT target is only valid whithin the PREROUTING and OUTPUT chains of the **nat** table
+
+Examples:
+```
+# iptables -t nat -A PREROUTING -p tcp --dport 123 -j REDIRECT --to-ports 22
+```
+
+```
+# iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
 ```
 
 ## TCP and UDP Ports states
