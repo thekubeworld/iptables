@@ -540,6 +540,31 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
 - ipset let you create huge lists of ip addresses and/or ports, with tens of thousands of entries, which are
   stored in a tiny piece of RAM with extreme efficiency.
 
+Example, imagining blocking a range of subnets in iptables like:
+```
+# iptables -A INPUT -s 1.1.1.1 -j DROP
+# iptables -A INPUT -s 2.2.2.2 -j DROP
+# iptables -A INPUT -s 8.8.8.8 -j DROP
+```
+
+1. Now start with ipset, `creating new set`:
+```
+# ipset -N MYNEWSET hash:ip
+```
+
+2. Add subnets to new set
+```
+# ipset -A MYNEWSET 1.1.1.1
+# ipset -A MYNEWSET 2.2.2.2
+# ipset -A MYNEWSET 8.8.8.8
+```
+
+3. Use in the iptables with -m set
+Incoming traffic `matching the SOURCE` from the list of set `MYNEWSET` and DROP
+```
+# iptables -A INPUT -m set --match-set MYNEWSET src -j DROP
+```
+
 
 ## Additional Resources
 - [Netfilter.org](https://www.netfilter.org/)
