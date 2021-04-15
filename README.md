@@ -55,6 +55,7 @@
     + [Allow OUTGOING traffic in initialized connections state NEW ESTABLISHED RELATED](#Allow-OUTGOING-traffic-in-initialized-connections-state-NEW-ESTABLISHED-RELATED)
     + [Drop INVALID packets](#Drop-Invalid-packets)
   * [ipset](#ipset)
+    + [Blocking via hash ip](#Blocking-via-hash-ip)
     + [Using hash net to block large nets](#Using-hash-net-to-block-large-nets)
     + [List sets](#List-sets)
     + [Delete entry in set](#Delete-entry-in-set)
