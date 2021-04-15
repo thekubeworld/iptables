@@ -65,6 +65,8 @@
     + [Setting the maximal number of elements which can be stored in a set](#Setting-the-maximal-number-of-elements-which-can-be-stored-in-a-set)
     + [Auto BLOCK attemps to a specific port](#Auto-BLOCK-attemps-to-a-specific-port)
     + [Blocking an entire country](#Blocking-an-entire-country)
+  * [Targets](#Targets)
+    + [Terminating Targets vs Non Terminating](#Terminating-Targets-vs-Non-Terminating)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
   * [Resources](#Resources)
 
@@ -698,6 +700,18 @@ echo -n "Blocking CN with iptables ... "
 iptables -I INPUT -m set --match-set china src -j DROP
 echo "Done"
 ```
+
+## Targets
+### Terminating Targets vs Non Terminating
+When a packet match a rule, will have to targets:
+
+- Terminating TARGETS: `ACCEPT` or `DROP` 
+This means when a packet match a rule that contains `ACCEPT` or `DROP` it will execute
+the rule and **STOP** going into the list of rules as it matched the rule.
+
+- Non Terminating TARGETS: `LOG` or `TEE`
+This means that if a packet match a rule with `LOG` or `TEE` it will continue executing
+the rules and **NOT** stop.
 
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
