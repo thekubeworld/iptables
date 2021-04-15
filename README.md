@@ -67,6 +67,10 @@
     + [Blocking an entire country](#Blocking-an-entire-country)
   * [Targets](#Targets)
     + [Terminating Targets vs Non Terminating](#Terminating-Targets-vs-Non-Terminating)
+  * [TCP and UDP Ports states](#TCP-and-UDP-Ports-states)
+    + [Open Port](#Open-Port)
+    + [Close Port](#Close-Port)
+    + [Filtered and Stealth](#Filtered-and-Stealth)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
   * [Resources](#Resources)
 
@@ -736,6 +740,21 @@ of rules. In this case, drop the packet.
 ```
 
 The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
+
+## TCP and UDP Ports states
+### Open Port
+  - There is an application that's listening on a OPEN port. We can communicate with that application.
+  - An OPEN port responds back to the source
+  - We can list open ports using `netstat` command
+
+### Close Port
+  - There is no application that's listening on a CLOSED port
+  - A closed port respond too, with TCP Reset for TCP traffic and with ICMP Port Unreachable, for UDP traffic
+
+### Filtered and Stealth
+  - A firewall is dropping any packet. The port **can be OPEN or CLOSED on the host**, but we can't communicate with it
+  - A filtered port **doesn't respond back**.
+
 
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
