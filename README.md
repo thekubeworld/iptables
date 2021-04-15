@@ -67,6 +67,8 @@
     + [Blocking an entire country](#Blocking-an-entire-country)
   * [Targets](#Targets)
     + [Terminating Targets vs Non Terminating](#Terminating-Targets-vs-Non-Terminating)
+    + [REJECT](#REJECT)
+    + [LOG](#LOG)
   * [TCP and UDP Ports states](#TCP-and-UDP-Ports-states)
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
@@ -764,6 +766,7 @@ Examples:
 ```
 # iptables -I FORWARD -p udp --dport 69 -j REJECT --reject-with icmp-port-unreachable
 ```
+### LOG
 
 
 ## TCP and UDP Ports states
