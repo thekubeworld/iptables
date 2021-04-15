@@ -1008,7 +1008,7 @@ Additional data:
 *graph crated by: Andrei Dumitrescu*
 
 ### Outgoing Packets
-![](png/OUTGOING.pn)
+![](png/OUTGOING.png)
 *graph crated by: Andrei Dumitrescu*
 
 ### Routed Packets
