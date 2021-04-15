@@ -846,6 +846,15 @@ Example:
 # nmap -sS -p 22,100 -sV 192.168.0.1
 ```
 
+## User Defined Chain
+- By default, the iptables **filter** table consist of three built-in chains: **INPUT**, **OUTPUT** and **FORWARD**
+- You can add as many custom (user-defined) chains as you like to help simplify managing large rules sets
+- User-defined chains are useful in optimizing the ruleset. They allow the rules to be organied categories.
+- From a built-in chain using **-j CUSTOM-CHAIN** you can jump into a custom chain
+- After the user-defined chain is traversed, control returns to the calling built-in chain, and matching
+  continues from the next rule in the calling chain, unless the user-defined chain matched and took
+  a terminating action on the packet.
+
 ## SNAT or MASQUERADE
 - NAT involves **re-writing the source/or destination addresses** of IP packets as they pass through a router or firewall
 - **SNAT replaces** the private IP address from the packet with the public IP address of the router external interface
