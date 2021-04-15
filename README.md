@@ -75,7 +75,7 @@
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
     + [Filtered and Stealth](#Filtered-and-Stealth)
-  * [NAT or MASQUERADE](#NAT-or-MASQUERADE)
+  * [SNAT or MASQUERADE](#NAT-or-MASQUERADE)
   * [DNAT](#DNAT)
   * [Scanners](#Scanner)
     + [nmap](#nmap)
@@ -856,7 +856,7 @@ Example:
 # nmap -sS -p 22,100 -sV 192.168.0.1
 ```
 
-## NAT or MASQUERADE
+## SNAT or MASQUERADE
 - NAT involves **re-writing the source/or destination addresses** of IP packets as they pass through a router or firewall
 - **SNAT replaces** the private IP address from the packet with the public IP address of the router external interface
 - Netfilter framework enables a Linux machine with an appropriate number of network cards (interface) to become a router
