@@ -548,7 +548,7 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
 - ipset let you create huge lists of ip addresses and/or ports, with tens of thousands of entries, which are
   stored in a tiny piece of RAM with extreme efficiency.
 
-### Blocking via haship
+### Blocking via hash ip
 Example, imagining blocking a range of subnets in iptables like:
 ```
 # iptables -A INPUT -s 1.1.1.1 -j DROP
