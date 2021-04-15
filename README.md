@@ -715,7 +715,7 @@ the rules and **NOT** stop executing the rules in the CHAIN.
 
 Examples:  
 
-- Terminating Action  
+**Terminating Action**  
 
 In this case, it will accept the packet on port 22 and terminate. 
 No more rules will be read. Like the DROP connection.
@@ -725,7 +725,7 @@ No more rules will be read. Like the DROP connection.
 # iptables -A INPUT -p tcp -j DROP
 ```
 
-- Non Terminating Action  
+**Non Terminating Action**  
 
 It will log the packet INCOMING in port 22 and continue into the list
 of rules. In this case, drop the packet.  
