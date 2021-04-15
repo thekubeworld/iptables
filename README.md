@@ -770,7 +770,7 @@ The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
 	A **SYN response** means the port is `OPEN` and a `RESET` indicates the port is **CLOSED**.
 	If **no response** is received the port is marked as **FILTERED**.
 
-	- Connect Scan: -sT 
+- Connect Scan: -sT 
 
 - UDP Scan: -sU
 - ICMP Scan: -sN or -sP
