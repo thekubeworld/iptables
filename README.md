@@ -69,6 +69,7 @@
     + [Terminating Targets vs Non Terminating](#Terminating-Targets-vs-Non-Terminating)
     + [REJECT](#REJECT)
     + [LOG](#LOG)
+    + [TEE](#TEE)
   * [TCP and UDP Ports states](#TCP-and-UDP-Ports-states)
     + [Open Port](#Open-Port)
     + [Close Port](#Close-Port)
@@ -782,6 +783,14 @@ Example:
 ```
 # iptables -A INPUT -p tcp --dport 22 --syn -j LOG --log-prefix="incoming ssh:" --log-level info
 # dmesg | grep "incoming ssh" 
+```
+
+### TEE
+- The `TEE` target will clone a packet and redirect this clone to another machine on the local subnet
+- It is used for traffic mirroring
+
+```
+# iptables -A FORWARD -i eth0 -o eth1 -p tcp -d 80.0.0.1 -j TEE --gateway 10.0.0.10
 ```
 
 ## TCP and UDP Ports states
