@@ -537,7 +537,7 @@ Conntrack module can even be used in non tracking protocol like UDP or ICMP
 - ipset is an extension to iptables that allow us to create firewall rules that match entire `sets` of addresses at once
 - Unlike iptables chains, which are stored in traversed linerarly, IP sets are stored in `indexed data structures`m
   making lookups `very efficient`, even when dealing with large sets.
-- ipet let you create huge lists of ip addresses and/or ports, with tens of thousands of entries, which are
+- ipset let you create huge lists of ip addresses and/or ports, with tens of thousands of entries, which are
   stored in a tiny piece of RAM with extreme efficiency.
 
 
