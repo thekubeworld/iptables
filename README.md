@@ -64,7 +64,7 @@
     + [Delete a set](#Delete-a-set)
     + [Setting the maximal number of elements which can be stored in a set](#Setting-the-maximal-number-of-elements-which-can-be-stored-in-a-set)
     + [Auto BLOCK attemps to a specific port](#Auto-BLOCK-attemps-to-a-specific-port)
-  * [Cleaning a firewall](#Cleaning-a-firewall)
+  * [Cleaning firewall RESET](#Cleaning-firewall-RESET)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -637,7 +637,7 @@ Now time to add a rule to block:
 # iptables -I INPUT -m set --match-set auto_blocked src -j DROP
 ```
 
-## Cleaning a firewall
+## Cleaning firewall RESET
 ```
 # iptables -P INPUT ACCEPT
 # iptables -P OUTPUT ACCEPT
