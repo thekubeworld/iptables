@@ -63,6 +63,7 @@
     + [Flush a specific set](#Flush-a-specific-set)
     + [Delete a set](#Delete-a-set)
     + [Setting the maximal number of elements which can be stored in a set](#Setting-the-maximal-number-of-elements-which-can-be-stored-in-a-set)
+    + [Auto BLOCK attemps to a specific port](#Auto-BLOCK-attemps-to-a-specific-port)
   * [Additional Resources](#Additional-Resources)
 
 # iptables
@@ -622,6 +623,19 @@ Default value: `65535`
 ```
 # ipset create myset1 hash:ip maxelem 2048
 ```
+
+### Auto BLOCK attemps to a specific port
+```
+# ipset -N auto_blocked iphash
+# iptables -I INPUT -p tcp --dport 80 -j SET --add-set auto_blocked src
+
+NOTE: It's the same as manually adding via:
+# ipset -A auto_blocked 1.2.3.4
+
+Now time to add a rule to block:
+# iptables -I INPUT -m set --match-set auto_blocked src -j DROP
+```
+
 
 ## Additional Resources
 - [Netfilter.org](https://www.netfilter.org/)
