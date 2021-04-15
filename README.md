@@ -766,6 +766,7 @@ The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
 
 	It can be perform quickly, it's STEALTH mode as it never complete TCP connection.  
 	`Half open scanning`, because it never open TCP connection.  
+
 	A SYN response means the port is OPEN and a RESET indicates the port is closed.
 	If no response is received the port is marked as FILTERED.
 
