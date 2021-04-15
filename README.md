@@ -854,6 +854,21 @@ Example:
 - After the user-defined chain is traversed, control returns to the calling built-in chain, and matching
   continues from the next rule in the calling chain, unless the user-defined chain matched and took
   a terminating action on the packet.
+- The **RETURN** target in the rule of a custom-chain makes processing resume back in the chain that
+  called the custom chain
+- **-j RETURN** can also be used inside built-in chain. In this case no other rule will be 
+  inspected and packet executes the default POLICY
+- If you want stop using your custom chain temporarily, you can simply **delete the jump from
+  the INPUT chain** (rather than flushing or deleting the entire custom chain)
+
+**Options**:
+
+```
+-N NEW_CHAIN creates a new user-defined chain
+-L NEW_CHAIN lists the content of the chain
+-X NEW_CHAIN deletes the custom-chain (it must be empty before using -F)
+-F NEW_CHAIN flush ALL rules from the chain
+```
 
 ## SNAT or MASQUERADE
 - NAT involves **re-writing the source/or destination addresses** of IP packets as they pass through a router or firewall
