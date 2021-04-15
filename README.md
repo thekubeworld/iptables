@@ -77,6 +77,7 @@
     + [Filtered and Stealth](#Filtered-and-Stealth)
   * [SNAT or MASQUERADE](#NAT-or-MASQUERADE)
   * [DNAT](#DNAT)
+  * [Load Balance Example](#Load-Balance-Example)
   * [Scanners](#Scanner)
     + [nmap](#nmap)
   * [RESET Cleaning firewall](#RESET-Cleaning-firewall)
@@ -902,6 +903,35 @@ Examples:
 # iptables -t nat -F  PREROUTING
 # iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.0.0.2
 # iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 10.0.0.2:80
+```
+
+## Load Balance Example
+```
+#!/bin/bash
+ 
+##** LOAD BALANCE NAT TRAFFIC OVER 2 INTERNET CONNECTIONS WITH DYNAMIC IP ADDRESSES **##
+ 
+# Traffic that goes over the first connection
+# web: 80 443
+# email: 25 465 143 993 110 995
+# ssh: 22
+ 
+ISP1="22 25 80 110 143 443 465 993 995"
+ 
+# flushing nat table and POSTROUTING chain
+iptables -t nat -F POSTROUTING
+ 
+# enable routing
+echo "1" > /proc/sys/net/ipv4/ip_forward
+ 
+for port in $ISP1
+do
+  iptables -t nat -A POSTROUTING -p tcp --dport $port -o eth1 -j MASQUERADE
+done
+ 
+ 
+# Traffic not NATed goes over the 2nd connection
+iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 ```
 
 ## Resources
