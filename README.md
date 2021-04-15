@@ -890,7 +890,19 @@ NATed, specify the external interface using **-o** option and use **-j SNAT --to
 ```  
 
 ### DNAT
+- It permits connections from the Internet to servers with private IP addresses inside LAN
+- The client connects to the PUBLIC IP address of the DNAT Router which internally
+  will redirects the traffic to the private server
+- The server with the private IP address stays invisible
+- DNAT uses nat table and PREROUTING chain
+- Target used is -j DNAT --to-destination private_ip_address
 
+Examples:
+```
+# iptables -t nat -F  PREROUTING
+# iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.0.0.2
+# iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 10.0.0.2:80
+```
 
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
