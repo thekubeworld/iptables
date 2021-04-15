@@ -854,6 +854,39 @@ Example:
 # nmap -sS -p 22,100 -sV 192.168.0.1
 ```
 
+## NAT or MASQUERADE
+- NAT involves **re-writing the source/or destination addresses** of IP packets as they pass through a router or firewall
+- **SNAT replaces** the private IP address from the packet with the public IP address of the router external interface
+- Netfilter framework enables a Linux machine with an appropriate number of network cards (interface) to become a router
+  capable of NAT
+- SNAT uses **nat table** and the **POSTROUTING** chain
+- **MASQUERADE** is a special case of SNAT used when the public IP address of the NAT Router is dynamic. It will
+  automatically use the IP address of the outgoing network interface for network translation
+- When uses SNAT or MASQUERADE the netfilter also performs port address translation (PAT) on the packet.
+
+**Setting**:
+1. Enable the routing process
+
+```
+# echo "1" > /proc/sys/net/ipv4/ip_forward
+```
+
+or add the following and restart the network service
+
+```
+# vi /etc/sysctl.conf
+net.ipv4.ip_forward=1
+``` 
+
+2. Add an iptables rule to **nat table** and **POSTROUTING chain** that matches packets that should be
+NATed, specify the external interface using **-o** option and use **-j SNAT --to-source PUBLIC_IP** or
+**-j MASQUERADE** targets
+
+```
+# echo "1" > /proc/sys/net/ipv4/ip_forward
+# iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
+```  
+
 ## Resources
 - [Netfilter.org](https://www.netfilter.org/)
 - [Linux Security: The Complete Iptables Firewall Guide](https://www.udemy.com/course/linux-security-the-complete-iptables-firewall-guide/)
