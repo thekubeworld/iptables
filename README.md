@@ -743,6 +743,29 @@ of rules. In this case, drop the packet.
 
 The LOG can be seen via `dmesg` command as it uses Linux Kernel facility.
 
+### REJECT
+- REJECT is a terminating target 
+- Like DROP it denies the packet **but also sends back a reply packet** to the source
+- By default it sends back an **ICMP Port Unreacheable** packet.
+- It's possible to change the response packet using **--reject-with** option
+- Sometimes it's more efficient to REJECT than DROPPING the packet
+
+Examples:
+
+```
+# iptables -I INPUT -p tcp --dport 22 -s 192.168.0.20 -j REJECT
+# tcpdump host 192.168.0.20
+
+<on machine 192.168.0.20>
+# nmap -p 22 192.168.0.10
+```
+
+
+```
+# iptables -I FORWARD -p udp --dport 69 -j REJECT --reject-with icmp-port-unreachable
+```
+
+
 ## TCP and UDP Ports states
 ### Open Port
   - There is an application that's listening on a OPEN port. We can communicate with that application.
