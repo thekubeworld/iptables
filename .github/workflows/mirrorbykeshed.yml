@@ -1,0 +1,27 @@
+name: Mirror K8sbykeshed
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '*/15 * * * *'    # At every 15 minutes
+
+jobs:
+  to_K8sbykeshed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sycnmain
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:thekubeworld/iptables.git"
+          source_branch: "main"
+          destination_repo: "git@github.com:K8sbykeshed/iptables.git"
+          destination_branch: "main"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
+      - name: synctags
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:thekubeworld/iptables.git"
+          source_branch: "refs/tags/*"
+          destination_repo: "git@github.com:K8sbykeshed/iptables.git"
+          destination_branch: "refs/tags/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
+
